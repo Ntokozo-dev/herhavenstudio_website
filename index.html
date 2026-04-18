@@ -65,7 +65,7 @@
     .nav-logo {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 2px;
       font-family: 'Playfair Display', serif;
       font-size: 1.2rem;
       font-weight: 700;
@@ -74,8 +74,8 @@
 
     /* ── Lotus SVG icon colour ── */
     .nav-logo svg {
-      width: 32px;
-      height: 32px;
+      width: 26px;
+      height: 26px;
       flex-shrink: 0;
     }
 
@@ -83,7 +83,7 @@
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 32px;
+      gap: 26px;
       list-style: none;
     }
 
@@ -147,25 +147,28 @@
   <!-- ── NAVIGATION BAR ── -->
   <nav>
     <div class="nav-inner">
-
-      <!-- Logo: SVG lotus flower + brand name -->
+      
+      <!-- Logo: brand name + SVG lotus flower  -->
       <a href="index.html" class="nav-logo">
-
-        <!-- Inline SVG lotus flower in brand plum colour -->
+      
+        
+        <!-- Inline SVG lotus flower — petals in blush pink tones -->
         <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <!-- Centre petal -->
-          <path d="M50 80 C50 80 30 60 30 40 C30 25 40 15 50 15 C60 15 70 25 70 40 C70 60 50 80 50 80Z" fill="#5C2D5E"/>
-          <!-- Left petal -->
-          <path d="M50 80 C50 80 20 65 15 45 C10 30 18 18 28 20 C38 22 45 38 50 80Z" fill="#7A4870"/>
-          <!-- Right petal -->
-          <path d="M50 80 C50 80 80 65 85 45 C90 30 82 18 72 20 C62 22 55 38 50 80Z" fill="#7A4870"/>
-          <!-- Far left petal -->
-          <path d="M50 80 C50 80 12 72 8 52 C4 36 14 26 24 30 C34 34 42 55 50 80Z" fill="#E8D5E8"/>
-          <!-- Far right petal -->
-          <path d="M50 80 C50 80 88 72 92 52 C96 36 86 26 76 30 C66 34 58 55 50 80Z" fill="#E8D5E8"/>
+          <!-- Centre petal — deep rose pink -->
+          <path d="M50 80 C50 80 30 60 30 40 C30 25 40 15 50 15 C60 15 70 25 70 40 C70 60 50 80 50 80Z" fill="#D4537E"/>
+          <!-- Left petal — warm rose -->
+          <path d="M50 80 C50 80 20 65 15 45 C10 30 18 18 28 20 C38 22 45 38 50 80Z" fill="#C43A68"/>
+          <!-- Right petal — warm rose -->
+          <path d="M50 80 C50 80 80 65 85 45 C90 30 82 18 72 20 C62 22 55 38 50 80Z" fill="C43A68"/>
+          <!-- Far left petal — muted rose -->
+          <path d="M50 80 C50 80 12 72 8 52 C4 36 14 26 24 30 C34 34 42 55 50 80Z" fill="#E8849E"/>
+          <!-- Far right petal — muted rose -->
+          <path d="M50 80 C50 80 88 72 92 52 C96 36 86 26 76 30 C66 34 58 55 50 80Z" fill="#E8849E"/>
         </svg>
-
-        Her Haven Studio
+         <span class="logo-icon"></span>
+         <span class="brand-name">Her Haven Studio</span>
+ 
+        
       </a>
 
       <!-- Navigation links -->
