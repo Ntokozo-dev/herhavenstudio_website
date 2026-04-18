@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+    <meta charset="UTF-8"/>
+    <meta name ="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Her Haven Studio</title>
+
+  <!--google fonts: Playfair Display for headings, lato for body text-->
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="htts://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400:700:1,400&family=Lato:wght@300:400:700&display=swap" rel="stylesheet" />
+    <style>
+
+        /* ── Brand colours as reusable variables ── */
+    :root {
+      --plum:        #5C2D5E;
+      --plum-dark:   #3C1A3E;
+      --plum-light:  #E8D5E8;
+      --beige:       #F5F0EB;
+      --blush:       #F2D7D9;
+      --white:       #FFFFFF;
+      --text:        #2C2424;
+      --text-mid:    #6A5A5A;
+      --border:      #E0D4D4;
+    }
+    /* ── Base reset ── */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+     
+    body {
+      font-family: 'Lato', sans-serif;
+      color: var(--text);
+      background: var(--white);
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+ 
+     /* ── Sticky nav bar ── */
+    nav {
+      position: sticky;       /* stays at top when scrolling */
+      top: 0;
+      z-index: 100;           /* sits above all other content */
+      background: var(--beige);
+      border-bottom: 1px solid var(--border);
+    }
+
+    /* ── Inner wrapper: limits width and centres content ── */
+    .nav-inner {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 24px;
+      height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    /* ── Logo: lotus icon + brand name side by side ── */
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--plum);
+    }
+
+    /* ── Lotus SVG icon colour ── */
+    .nav-logo svg {
+      width: 32px;
+      height: 32px;
+      flex-shrink: 0;
+    }
+
+    /* ── Nav links list ── */
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+
+    /* ── Individual nav link ── */
+    .nav-links a {
+      font-size: 0.88rem;
+      font-weight: 400;
+      color: var(--text-mid);
+      letter-spacing: 0.02em;
+      transition: color 0.2s;
+      position: relative;
+    }
+
+    /* ── Underline that slides in on hover ── */
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 1.5px;
+      background: var(--plum);
+      transition: width 0.2s;
+    }
+
+    .nav-links a:hover        { color: var(--plum); }
+    .nav-links a:hover::after { width: 100%; }
+
+    /* ── Active page link ── */
+    .nav-links a.active {
+      color: var(--plum);
+      font-weight: 700;
+    }
+    .nav-links a.active::after { width: 100%; }
+
+    /* ── Join now button ── */
+    .btn-join {
+      display: inline-block;
+      background: var(--plum);
+      color: var(--white);
+      font-family: 'Lato', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      padding: 10px 24px;
+      border-radius: 40px;
+      border: 2px solid var(--plum);
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .btn-join:hover {
+      background: var(--plum-dark);
+      border-color: var(--plum-dark);
+      transform: translateY(-2px);
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- ── NAVIGATION BAR ── -->
+  <nav>
+    <div class="nav-inner">
+
+      <!-- Logo: SVG lotus flower + brand name -->
+      <a href="index.html" class="nav-logo">
+
+        <!-- Inline SVG lotus flower in brand plum colour -->
+        <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Centre petal -->
+          <path d="M50 80 C50 80 30 60 30 40 C30 25 40 15 50 15 C60 15 70 25 70 40 C70 60 50 80 50 80Z" fill="#5C2D5E"/>
+          <!-- Left petal -->
+          <path d="M50 80 C50 80 20 65 15 45 C10 30 18 18 28 20 C38 22 45 38 50 80Z" fill="#7A4870"/>
+          <!-- Right petal -->
+          <path d="M50 80 C50 80 80 65 85 45 C90 30 82 18 72 20 C62 22 55 38 50 80Z" fill="#7A4870"/>
+          <!-- Far left petal -->
+          <path d="M50 80 C50 80 12 72 8 52 C4 36 14 26 24 30 C34 34 42 55 50 80Z" fill="#E8D5E8"/>
+          <!-- Far right petal -->
+          <path d="M50 80 C50 80 88 72 92 52 C96 36 86 26 76 30 C66 34 58 55 50 80Z" fill="#E8D5E8"/>
+        </svg>
+
+        Her Haven Studio
+      </a>
+
+      <!-- Navigation links -->
+      <ul class="nav-links">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="classes.html">Classes</a></li>
+        <li><a href="community.html">Community</a></li>
+        <li><a href="wellness.html">Wellness</a></li>
+        <li><a href="research.html">Research</a></li>
+        <li><a heref="about us.html">About Us</a></li>
+      </ul>
+
+      <!-- Call to action button -->
+      <a href="register.html" class="btn-join">Join now</a>
+
+    </div>
+  </nav>
+
+</body>
+</html>
