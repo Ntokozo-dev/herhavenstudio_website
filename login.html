@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login — Her Haven Studio</title>
+
+  <!-- Google Fonts: Playfair Display for headings, Lato for body text -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet"/>
+
+  <style>
+
+    /* ── Brand colours as reusable variables ── */
+    :root {
+      --plum:       #5C2D5E;
+      --plum-dark:  #3C1A3E;
+      --plum-light: #E8D5E8;
+      --beige:      #F5F0EB;
+      --blush:      #F2D7D9;
+      --white:      #FFFFFF;
+      --text:       #2C2424;
+      --text-mid:   #6A5A5A;
+      --border:     #E0D4D4;
+    }
+
+    /* ── Base reset ── */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* ── Body ── */
+    body {
+      font-family: 'Lato', sans-serif;
+      color: var(--text);
+      background: var(--beige);      /* beige page background */
+    }
+
+    /* ── Remove underlines from links ── */
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* ── Simple login header: just the brand logo ── */
+    .login-header {
+      background: var(--beige);
+      border-bottom: 1px solid var(--border);
+      padding: 0 24px;
+      height: 68px;
+      display: flex;
+      align-items: center;
+    }
+
+    /* ── Login header: logo left, menu button right ── */
+    .login-header {
+      background: var(--beige);
+      border-bottom: 1px solid var(--border);
+      padding: 0 24px;
+      height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;  /* pushes logo left, menu right */
+      position: relative;
+    }
+
+    /* ── Logo ── */
+    .login-header .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--plum);
+    }
+
+    /* ── Logo brand wrapper ── */
+    .nav-logo-brand {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* ── Brand text: two lines ── */
+    .brand-text {
+      line-height: 1.2;
+      font-size: 1rem;
+    }
+
+    /* ── Lotus SVG size ── */
+    .login-header svg {
+      width: 26px;
+      height: 26px;
+      flex-shrink: 0;
+    }
+
+    /* ── Menu toggle button: three lines ── */
+    .menu-toggle {
+      background: none;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      padding: 4px;
+    }
+
+    /* ── Each line of the menu icon ── */
+    .menu-toggle span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--plum);
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+
+    /* ── Dropdown menu: hidden by default ── */
+    .menu-dropdown {
+      display: none;                   /* hidden until menu is clicked */
+      position: absolute;
+      top: 68px;                       /* sits directly below the header */
+      right: 0;
+      left: 0;
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      padding: 20px 24px;
+      z-index: 99;
+    }
+
+    /* ── Dropdown menu when open ── */
+    .menu-dropdown.open {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    /* ── Dropdown link ── */
+    .menu-dropdown a {
+      font-size: 0.92rem;
+      color: var(--text-mid);
+      font-weight: 400;
+      transition: color 0.2s;
+    }
+
+    .menu-dropdown a:hover { color: var(--plum); }
+
+    /* ── Join now button ── */
+    .btn-join {
+      display: inline-block;
+      background: var(--plum);
+      color: var(--white);
+      font-family: 'Lato', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      padding: 10px 24px;
+      border-radius: 40px;
+      border: 2px solid var(--plum);
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .btn-join:hover {
+      background: var(--plum-dark);
+      border-color: var(--plum-dark);
+      transform: translateY(-2px);
+    }
+
+    /* ── Login page wrapper: centres the form on the page ── */
+    .login-page {
+      min-height: calc(100vh - 68px);   /* fills remaining screen height */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 24px;
+    }
+
+    /* ── Login card: white box containing the form ── */
+    .login-card {
+      background: var(--white);
+      border-radius: 24px;
+      border: 1px solid var(--border);
+      padding: 48px 40px;
+      width: 100%;
+      max-width: 420px;                 /* limits width of form */
+    }
+
+    /* ── Avatar circle at top of form ── */
+    .login-avatar {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: var(--plum-light);    /* light plum background */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+    }
+
+    /* ── Avatar initials ── */
+    .login-avatar span {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--plum);
+    }
+
+    /* ── Welcome back heading ── */
+    .login-card h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--text);
+      text-align: center;
+      margin-bottom: 8px;
+    }
+
+    /* ── Subtext below heading ── */
+    .login-card .login-sub {
+      font-size: 0.88rem;
+      color: var(--text-mid);
+      text-align: center;
+      margin-bottom: 32px;
+    }
+
+    /* ── Form field group: label + input stacked ── */
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    /* ── Field label ── */
+    .form-group label {
+      display: block;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text-mid);
+      margin-bottom: 8px;
+    }
+
+    /* ── Text input field ── */
+    .form-group input {
+      width: 100%;
+      padding: 12px 16px;
+      font-family: 'Lato', sans-serif;
+      font-size: 0.92rem;
+      color: var(--text);
+      background: var(--beige);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    /* ── Input focus state ── */
+    .form-group input:focus {
+      border-color: var(--plum);        /* plum border when active */
+    }
+
+    /* ── Forgot password link: sits right-aligned below password field ── */
+    .forgot-link {
+      display: block;
+      text-align: right;
+      font-size: 0.78rem;
+      color: var(--plum);
+      font-weight: 700;
+      margin-top: 6px;
+      transition: opacity 0.2s;
+    }
+
+    .forgot-link:hover { opacity: 0.7; }
+
+    /* ── Log in button: full width, deep plum ── */
+    .btn-login {
+      display: block;
+      width: 100%;
+      padding: 14px;
+      background: var(--plum);
+      color: var(--white);
+      font-family: 'Lato', sans-serif;
+      font-size: 0.92rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-align: center;
+      border-radius: 40px;
+      border: 2px solid var(--plum);
+      margin-top: 28px;
+      transition: background 0.2s, transform 0.2s;
+      cursor: pointer;
+    }
+
+    .btn-login:hover {
+      background: var(--plum-dark);
+      border-color: var(--plum-dark);
+      transform: translateY(-2px);
+    }
+
+    /* ── Or divider: line on each side of the word "or" ── */
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 24px 0;
+    }
+
+    /* ── Divider line ── */
+    .divider::before,
+    .divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    /* ── Divider text ── */
+    .divider span {
+      font-size: 0.78rem;
+      color: var(--text-mid);
+      letter-spacing: 0.06em;
+    }
+
+    /* ── Continue with Google button: outline style ── */
+    .btn-google {
+      display: block;
+      width: 100%;
+      padding: 13px;
+      background: transparent;
+      color: var(--text);
+      font-family: 'Lato', sans-serif;
+      font-size: 0.92rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      text-align: center;
+      border-radius: 40px;
+      border: 1.5px solid var(--border);
+      transition: border-color 0.2s, transform 0.2s;
+      cursor: pointer;
+    }
+
+    .btn-google:hover {
+      border-color: var(--plum);
+      transform: translateY(-2px);
+    }
+
+    /* ── Sign up link at the bottom ── */
+    .login-footer {
+      text-align: center;
+      margin-top: 28px;
+      font-size: 0.85rem;
+      color: var(--text-mid);
+    }
+
+    /* ── Create account link ── */
+    .login-footer a {
+      color: var(--plum);
+      font-weight: 700;
+      transition: opacity 0.2s;
+    }
+
+    .login-footer a:hover { opacity: 0.7; }
+
+    /* ── Footer ── */
+    .footer {
+      background: var(--plum-dark);
+      color: rgba(255, 255, 255, 0.75);
+      padding: 60px 24px 32px;
+    }
+
+    .footer-inner {
+      max-width: 1140px;
+      margin: 0 auto;
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      margin-bottom: 32px;
+    }
+
+    .footer-brand-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      color: var(--white);
+      margin-bottom: 6px;
+    }
+
+    .footer-brand-tag {
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--blush);
+      margin-bottom: 16px;
+    }
+
+    .footer-brand p {
+      font-size: 0.85rem;
+      line-height: 1.8;
+      max-width: 260px;
+      color: rgba(255, 255, 255, 0.65);
+    }
+
+    .footer-col h4 {
+      font-family: 'Lato', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 16px;
+    }
+
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-col ul a {
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.65);
+      transition: color 0.2s;
+    }
+
+    .footer-col ul a:hover { color: var(--blush); }
+
+    .footer-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .footer-bottom p {
+      font-size: 0.78rem;
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 16px;
+    }
+
+    .footer-social a {
+      font-size: 0.78rem;
+      color: rgba(255, 255, 255, 0.5);
+      transition: color 0.2s;
+    }
+
+    .footer-social a:hover { color: var(--blush); }
+
+  </style>
+</head>
+<body>
+
+<!-- ── LOGIN HEADER: logo left, menu toggle right ── -->
+  <header class="login-header">
+
+    <!-- Logo: clicking takes user back to home page -->
+    <a href="index.html" class="nav-logo">
+      <span class="nav-logo-brand">
+
+        <!-- Brand name -->
+        <span class="brand-text">Her Haven<br>Studio</span>
+
+        <!-- Inline SVG lotus flower -->
+        <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Centre petal — deep rose pink -->
+          <path d="M50 80 C50 80 30 60 30 40 C30 25 40 15 50 15 C60 15 70 25 70 40 C70 60 50 80 50 80Z" fill="#D4537E"/>
+          <!-- Left petal — warm rose -->
+          <path d="M50 80 C50 80 20 65 15 45 C10 30 18 18 28 20 C38 22 45 38 50 80Z" fill="#C43A68"/>
+          <!-- Right petal — warm rose -->
+          <path d="M50 80 C50 80 80 65 85 45 C90 30 82 18 72 20 C62 22 55 38 50 80Z" fill="#C43A68"/>
+          <!-- Far left petal — muted rose -->
+          <path d="M50 80 C50 80 12 72 8 52 C4 36 14 26 24 30 C34 34 42 55 50 80Z" fill="#E8849E"/>
+          <!-- Far right petal — muted rose -->
+          <path d="M50 80 C50 80 88 72 92 52 C96 36 86 26 76 30 C66 34 58 55 50 80Z" fill="#E8849E"/>
+        </svg>
+
+      </span>
+    </a>
+
+    <!-- Menu toggle button — three lines icon -->
+    <button class="menu-toggle" id="menuToggle" aria-label="Open menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <!-- Dropdown menu — hidden until toggle is clicked -->
+    <div class="menu-dropdown" id="menuDropdown">
+      <a href="index.html">Home</a>
+      <a href="classes.html">Classes</a>
+      <a href="community.html">Community</a>
+      <a href="wellness.html">Wellness</a>
+      <a href="research.html">Research</a>
+      <a href="about.html">About Us</a>
+      <!-- Join now link at bottom of menu -->
+      <a href="register.html" style="color: var(--plum); font-weight: 700;">Join now</a>
+    </div>
+
+  </header>
+  
+
+  <!-- ── LOGIN PAGE ── -->
+  <main class="login-page">
+
+    <!-- Login form card -->
+    <div class="login-card">
+
+      <!-- Avatar circle at top -->
+      <div class="login-avatar">
+        <span>HH</span>
+      </div>
+
+      <!-- Welcome heading -->
+      <h1>Welcome back</h1>
+
+      <!-- Subtext below heading -->
+      <p class="login-sub">Log in to your Her Haven Studio account</p>
+
+      <!-- Email field -->
+      <div class="form-group">
+        <label for="email">Email address</label>
+        <input type="email" id="email" placeholder="you@example.com"/>
+      </div>
+
+      <!-- Password field -->
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" placeholder="Enter your password"/>
+        <!-- Forgot password link sits below the input -->
+        <a href="#" class="forgot-link">Forgot password?</a>
+      </div>
+
+      <!-- Log in button -->
+      <a href="index.html" class="btn-login">Log in</a>
+
+      <!-- Or divider -->
+      <div class="divider">
+        <span>or</span>
+      </div>
+
+      <!-- Continue with Google button -->
+      <a href="#" class="btn-google">Continue with Google</a>
+
+      <!-- Sign up link -->
+      <p class="login-footer">
+        Don't have an account?
+        <a href="register.html">Create one</a>
+      </p>
+
+    </div>
+
+  </main>
+
+  <!-- ── FOOTER ── -->
+  <footer class="footer">
+    <div class="footer-inner">
+
+      <div class="footer-top">
+
+        <!-- Brand column -->
+        <div class="footer-brand">
+          <p class="footer-brand-name">Her Haven Studio</p>
+          <p class="footer-brand-tag">Women-Centred Wellness</p>
+          <p>A safe, inclusive space for women to train, heal, and thrive — backed by research, built by community.</p>
+        </div>
+
+        <!-- Platform links -->
+        <div class="footer-col">
+          <h4>Platform</h4>
+          <ul>
+            <li><a href="classes.html">Classes</a></li>
+            <li><a href="wellness.html">Wellness Hub</a></li>
+            <li><a href="booking.html">Book a class</a></li>
+            <li><a href="community.html">Community</a></li>
+          </ul>
+        </div>
+
+        <!-- About links -->
+        <div class="footer-col">
+          <h4>About</h4>
+          <ul>
+            <li><a href="about.html">About us</a></li>
+            <li><a href="research.html">Research</a></li>
+            <li><a href="contributor.html">Contribute</a></li>
+            <li><a href="community.html#enquiries">Contact us</a></li>
+          </ul>
+        </div>
+
+        <!-- Account links -->
+        <div class="footer-col">
+          <h4>Account</h4>
+          <ul>
+            <li><a href="register.html">Create account</a></li>
+            <li><a href="login.html">Log in</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Copyright and social -->
+      <div class="footer-bottom">
+        <p>&copy; 2025 Her Haven Studio. All rights reserved. &nbsp;|&nbsp; www.herhavenstudio.co.za</p>
+        <div class="footer-social">
+          <a href="#">Instagram</a>
+          <a href="#">Facebook</a>
+          <a href="#">Privacy policy</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+</body>
+</html>

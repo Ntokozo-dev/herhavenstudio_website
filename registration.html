@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Register — Her Haven Studio</title>
+
+  <!-- Google Fonts: Playfair Display for headings, Lato for body text -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet"/>
+
+  <style>
+
+    /* ── Brand colours as reusable variables ── */
+    :root {
+      --plum:       #5C2D5E;
+      --plum-dark:  #3C1A3E;
+      --plum-light: #E8D5E8;
+      --beige:      #F5F0EB;
+      --blush:      #F2D7D9;
+      --white:      #FFFFFF;
+      --text:       #2C2424;
+      --text-mid:   #6A5A5A;
+      --border:     #E0D4D4;
+    }
+
+    /* ── Base reset ── */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* ── Body ── */
+    body {
+      font-family: 'Lato', sans-serif;
+      color: var(--text);
+      background: var(--beige);
+    }
+
+    /* ── Remove underlines from links ── */
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* ── Header: logo left, menu toggle right ── */
+    .login-header {
+      background: var(--beige);
+      border-bottom: 1px solid var(--border);
+      padding: 0 24px;
+      height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+    }
+
+    /* ── Logo ── */
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--plum);
+    }
+
+    /* ── Logo brand wrapper ── */
+    .nav-logo-brand {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* ── Brand text: two lines ── */
+    .brand-text {
+      line-height: 1.2;
+      font-size: 1rem;
+    }
+
+    /* ── Lotus SVG size ── */
+    .login-header svg {
+      width: 26px;
+      height: 26px;
+      flex-shrink: 0;
+    }
+
+    /* ── Menu toggle button ── */
+    .menu-toggle {
+      background: none;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      padding: 4px;
+    }
+
+    /* ── Menu toggle lines ── */
+    .menu-toggle span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--plum);
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+
+    /* ── Dropdown menu: hidden by default ── */
+    .menu-dropdown {
+      display: none;
+      position: absolute;
+      top: 68px;
+      right: 0;
+      left: 0;
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      padding: 20px 24px;
+      z-index: 99;
+    }
+
+    /* ── Dropdown menu when open ── */
+    .menu-dropdown.open {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    /* ── Dropdown link ── */
+    .menu-dropdown a {
+      font-size: 0.92rem;
+      color: var(--text-mid);
+      transition: color 0.2s;
+    }
+
+    .menu-dropdown a:hover { color: var(--plum); }
+
+    /* ── Register page wrapper: centres the form ── */
+    .register-page {
+      min-height: calc(100vh - 68px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 24px;
+    }
+
+    /* ── Register card: white box containing the form ── */
+    .register-card {
+      background: var(--white);
+      border-radius: 24px;
+      border: 1px solid var(--border);
+      padding: 48px 40px;
+      width: 100%;
+      max-width: 520px;              /* slightly wider than login for more fields */
+    }
+
+    /* ── Create account heading ── */
+    .register-card h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--text);
+      text-align: center;
+      margin-bottom: 8px;
+    }
+
+    /* ── Subtext below heading ── */
+    .register-sub {
+      font-size: 0.88rem;
+      color: var(--text-mid);
+      text-align: center;
+      margin-bottom: 32px;
+    }
+
+    /* ── Two column row: first name and last name side by side ── */
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;   /* two equal columns */
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    /* ── Form field group: label + input stacked ── */
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    /* ── Remove bottom margin when inside form-row ── */
+    .form-row .form-group {
+      margin-bottom: 0;
+    }
+
+    /* ── Field label ── */
+    .form-group label {
+      display: block;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text-mid);
+      margin-bottom: 8px;
+    }
+
+    /* ── Text input field ── */
+    .form-group input,
+    .form-group select {
+      width: 100%;
+      padding: 12px 16px;
+      font-family: 'Lato', sans-serif;
+      font-size: 0.92rem;
+      color: var(--text);
+      background: var(--beige);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      outline: none;
+      transition: border-color 0.2s;
+      appearance: none;              /* removes default browser styling on select */
+    }
+
+    /* ── Input and select focus state ── */
+    .form-group input:focus,
+    .form-group select:focus {
+      border-color: var(--plum);     /* plum border when active */
+    }
+
+    /* ── Checkbox row: checkbox and label side by side ── */
+    .form-check {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+
+    /* ── Checkbox input ── */
+    .form-check input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      margin-top: 2px;
+      accent-color: var(--plum);     /* plum tick colour */
+      flex-shrink: 0;
+      cursor: pointer;
+    }
+
+    /* ── Checkbox label text ── */
+    .form-check label {
+      font-size: 0.85rem;
+      color: var(--text-mid);
+      line-height: 1.6;
+      cursor: pointer;
+    }
+
+    /* ── Terms link inside checkbox label ── */
+    .form-check label a {
+      color: var(--plum);
+      font-weight: 700;
+    }
+
+    .form-check label a:hover { opacity: 0.7; }
+
+    /* ── Create account button: full width, deep plum ── */
+    .btn-register {
+      display: block;
+      width: 100%;
+      padding: 14px;
+      background: var(--plum);
+      color: var(--white);
+      font-family: 'Lato', sans-serif;
+      font-size: 0.92rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-align: center;
+      border-radius: 40px;
+      border: 2px solid var(--plum);
+      transition: background 0.2s, transform 0.2s;
+      cursor: pointer;
+    }
+
+    .btn-register:hover {
+      background: var(--plum-dark);
+      border-color: var(--plum-dark);
+      transform: translateY(-2px);
+    }
+
+    /* ── Log in link at bottom ── */
+    .register-footer {
+      text-align: center;
+      margin-top: 24px;
+      font-size: 0.85rem;
+      color: var(--text-mid);
+    }
+
+    /* ── Log in link ── */
+    .register-footer a {
+      color: var(--plum);
+      font-weight: 700;
+      transition: opacity 0.2s;
+    }
+
+    .register-footer a:hover { opacity: 0.7; }
+
+    /* ── Footer ── */
+    .footer {
+      background: var(--plum-dark);
+      color: rgba(255, 255, 255, 0.75);
+      padding: 60px 24px 32px;
+    }
+
+    .footer-inner {
+      max-width: 1140px;
+      margin: 0 auto;
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      margin-bottom: 32px;
+    }
+
+    .footer-brand-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      color: var(--white);
+      margin-bottom: 6px;
+    }
+
+    .footer-brand-tag {
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--blush);
+      margin-bottom: 16px;
+    }
+
+    .footer-brand p {
+      font-size: 0.85rem;
+      line-height: 1.8;
+      max-width: 260px;
+      color: rgba(255, 255, 255, 0.65);
+    }
+
+    .footer-col h4 {
+      font-family: 'Lato', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 16px;
+    }
+
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-col ul a {
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.65);
+      transition: color 0.2s;
+    }
+
+    .footer-col ul a:hover { color: var(--blush); }
+
+    .footer-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .footer-bottom p {
+      font-size: 0.78rem;
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 16px;
+    }
+
+    .footer-social a {
+      font-size: 0.78rem;
+      color: rgba(255, 255, 255, 0.5);
+      transition: color 0.2s;
+    }
+
+    .footer-social a:hover { color: var(--blush); }
+
+  </style>
+</head>
+<body>
+
+  <!-- ── HEADER: logo left, menu toggle right ── -->
+  <header class="login-header">
+
+    <!-- Logo: clicking takes user back to home page -->
+    <a href="index.html" class="nav-logo">
+      <span class="nav-logo-brand">
+
+        <!-- Brand name -->
+        <span class="brand-text">Her Haven<br>Studio</span>
+
+        <!-- Inline SVG lotus flower -->
+        <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Centre petal — deep rose pink -->
+          <path d="M50 80 C50 80 30 60 30 40 C30 25 40 15 50 15 C60 15 70 25 70 40 C70 60 50 80 50 80Z" fill="#D4537E"/>
+          <!-- Left petal — warm rose -->
+          <path d="M50 80 C50 80 20 65 15 45 C10 30 18 18 28 20 C38 22 45 38 50 80Z" fill="#C43A68"/>
+          <!-- Right petal — warm rose -->
+          <path d="M50 80 C50 80 80 65 85 45 C90 30 82 18 72 20 C62 22 55 38 50 80Z" fill="#C43A68"/>
+          <!-- Far left petal — muted rose -->
+          <path d="M50 80 C50 80 12 72 8 52 C4 36 14 26 24 30 C34 34 42 55 50 80Z" fill="#E8849E"/>
+          <!-- Far right petal — muted rose -->
+          <path d="M50 80 C50 80 88 72 92 52 C96 36 86 26 76 30 C66 34 58 55 50 80Z" fill="#E8849E"/>
+        </svg>
+
+      </span>
+    </a>
+
+    <!-- Menu toggle button — three lines icon -->
+    <button class="menu-toggle" id="menuToggle" aria-label="Open menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <!-- Dropdown menu — hidden until toggle is clicked -->
+    <div class="menu-dropdown" id="menuDropdown">
+      <a href="index.html">Home</a>
+      <a href="classes.html">Classes</a>
+      <a href="community.html">Community</a>
+      <a href="wellness.html">Wellness</a>
+      <a href="research.html">Research</a>
+      <a href="about.html">About Us</a>
+      <!-- Log in link at bottom of menu -->
+      <a href="login.html" style="color: var(--plum); font-weight: 700;">Log in</a>
+    </div>
+
+  </header>
+
+  <!-- ── REGISTRATION PAGE ── -->
+  <main class="register-page">
+
+    <!-- Registration form card -->
+    <div class="register-card">
+
+      <!-- Create account heading -->
+      <h1>Create your account</h1>
+
+      <!-- Subtext below heading -->
+      <p class="register-sub">Join the Her Haven Studio community today</p>
+
+      <!-- First name and last name side by side -->
+      <div class="form-row">
+
+        <!-- First name field -->
+        <div class="form-group">
+          <label for="firstname">First name</label>
+          <input type="text" id="firstname" placeholder="e.g. Thandi"/>
+        </div>
+
+        <!-- Last name field -->
+        <div class="form-group">
+          <label for="lastname">Last name</label>
+          <input type="text" id="lastname" placeholder="e.g. Nkosi"/>
+        </div>
+
+      </div>
+
+      <!-- Email field -->
+      <div class="form-group">
+        <label for="email">Email address</label>
+        <input type="email" id="email" placeholder="you@example.com"/>
+      </div>
+
+      <!-- Password field -->
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" placeholder="Create a password"/>
+      </div>
+
+      <!-- Confirm password field -->
+      <div class="form-group">
+        <label for="confirm-password">Confirm password</label>
+        <input type="password" id="confirm-password" placeholder="Repeat your password"/>
+      </div>
+
+      <!-- Primary health interest dropdown -->
+      <div class="form-group">
+        <label for="health-interest">Primary health interest</label>
+        <select id="health-interest">
+          <option value="" disabled selected>Select an option</option>
+          <option value="general">General fitness</option>
+          <option value="postnatal">Postnatal recovery</option>
+          <option value="pcos">PCOS management</option>
+          <option value="endometriosis">Endometriosis support</option>
+          <option value="mental-wellness">Mental wellness</option>
+          <option value="nutrition">Nutrition guidance</option>
+        </select>
+      </div>
+
+      <!-- Terms and privacy policy checkbox -->
+      <div class="form-check">
+        <input type="checkbox" id="terms"/>
+        <!-- Label references the checkbox by its id -->
+        <label for="terms">
+          I agree to the
+          <a href="#">terms of service</a>
+          and
+          <a href="#">privacy policy</a>
+        </label>
+      </div>
+
+      <!-- Create account button -->
+      <a href="index.html" class="btn-register">Create account</a>
+
+      <!-- Log in link at bottom -->
+      <p class="register-footer">
+        Already have an account?
+        <a href="login.html">Log in</a>
+      </p>
+
+    </div>
+
+  </main>
+
+  <!-- ── FOOTER ── -->
+  <footer class="footer">
+    <div class="footer-inner">
+
+      <div class="footer-top">
+
+        <!-- Brand column -->
+        <div class="footer-brand">
+          <p class="footer-brand-name">Her Haven Studio</p>
+          <p class="footer-brand-tag">Women-Centred Wellness</p>
+          <p>A safe, inclusive space for women to train, heal, and thrive — backed by research, built by community.</p>
+        </div>
+
+        <!-- Platform links -->
+        <div class="footer-col">
+          <h4>Platform</h4>
+          <ul>
+            <li><a href="classes.html">Classes</a></li>
+            <li><a href="wellness.html">Wellness Hub</a></li>
+            <li><a href="booking.html">Book a class</a></li>
+            <li><a href="community.html">Community</a></li>
+          </ul>
+        </div>
+
+        <!-- About links -->
+        <div class="footer-col">
+          <h4>About</h4>
+          <ul>
+            <li><a href="about.html">About us</a></li>
+            <li><a href="research.html">Research</a></li>
+            <li><a href="contributor.html">Contribute</a></li>
+            <li><a href="community.html#enquiries">Contact us</a></li>
+          </ul>
+        </div>
+
+        <!-- Account links -->
+        <div class="footer-col">
+          <h4>Account</h4>
+          <ul>
+            <li><a href="register.html">Create account</a></li>
+            <li><a href="login.html">Log in</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Copyright and social -->
+      <div class="footer-bottom">
+        <p>&copy; 2025 Her Haven Studio. All rights reserved. &nbsp;|&nbsp; www.herhavenstudio.co.za</p>
+        <div class="footer-social">
+          <a href="#">Instagram</a>
+          <a href="#">Facebook</a>
+          <a href="#">Privacy policy</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <script>
+    /* ── Toggle menu open and closed when button is clicked ── */
+    const menuToggle   = document.getElementById('menuToggle');
+    const menuDropdown = document.getElementById('menuDropdown');
+
+    menuToggle.addEventListener('click', () => {
+      menuDropdown.classList.toggle('open');
+    });
+  </script>
+
+</body>
+</html>

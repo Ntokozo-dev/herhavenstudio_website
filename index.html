@@ -1,56 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
-   <head>
-    <meta charset="UTF-8"/>
-    <meta name ="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Her Haven Studio</title>
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Her Haven Studio</title>
 
-  <!--google fonts: Playfair Display for headings, lato for body text-->
-    <link rel="preconnect" href="https://fonts.googleapis.com"/>
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="htts://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400:700:1,400&family=Lato:wght@300:400:700&display=swap" rel="stylesheet" />
-    <style>
+  <!-- Google Fonts: Playfair Display for headings, Lato for body text -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet"/>
 
-        /* ── Brand colours as reusable variables ── */
+  <style>
+
+    /* ── Brand colours as reusable variables ── */
     :root {
-      --plum:        #5C2D5E;
-      --plum-dark:   #3C1A3E;
-      --plum-light:  #E8D5E8;
-      --beige:       #F5F0EB;
-      --blush:       #F2D7D9;
-      --white:       #FFFFFF;
-      --text:        #2C2424;
-      --text-mid:    #6A5A5A;
-      --border:      #E0D4D4;
+      --plum:       #5C2D5E;
+      --plum-dark:  #3C1A3E;
+      --plum-light: #E8D5E8;
+      --beige:      #F5F0EB;
+      --blush:      #F2D7D9;
+      --white:      #FFFFFF;
+      --text:       #2C2424;
+      --text-mid:   #6A5A5A;
+      --border:     #E0D4D4;
     }
-    /* ── Base reset ── */
+
+    /* ── Base reset: removes default spacing from all elements ── */
     *, *::before, *::after {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
-     
+
+    /* ── Body: default font and colours ── */
     body {
       font-family: 'Lato', sans-serif;
       color: var(--text);
       background: var(--white);
     }
 
+    /* ── Remove underline from all links ── */
     a {
       text-decoration: none;
       color: inherit;
     }
- 
-     /* ── Sticky nav bar ── */
+
+    /* ── Sticky nav: stays at top of screen when scrolling ── */
     nav {
-      position: sticky;       /* stays at top when scrolling */
+      position: sticky;
       top: 0;
-      z-index: 100;           /* sits above all other content */
+      z-index: 100;
       background: var(--beige);
       border-bottom: 1px solid var(--border);
     }
 
-    /* ── Inner wrapper: limits width and centres content ── */
+    /* ── Nav inner: centres content and sets height ── */
     .nav-inner {
       max-width: 1140px;
       margin: 0 auto;
@@ -60,26 +64,32 @@
       align-items: center;
       justify-content: space-between;
     }
+    
+    /* ── Brand text: splits into two lines next to the lotus ── */
+    .brand-text {
+      line-height: 1.2;        /* tighter spacing between the two lines */
+      font-size: 1rem;         /* slightly smaller so both lines fit cleanly */
+    }
 
-    /* ── Logo: lotus icon + brand name side by side ── */
-    .nav-logo {
+    /* ── Logo brand wrapper: keeps name and lotus together as one unit ── */
+    .nav-logo-brand {
       display: flex;
       align-items: center;
-      gap: 2px;
+      gap: 6px;                /* small gap between text and lotus */  
       font-family: 'Playfair Display', serif;
       font-size: 1.2rem;
       font-weight: 700;
       color: var(--plum);
     }
 
-    /* ── Lotus SVG icon colour ── */
+    /* ── Lotus SVG size ── */
     .nav-logo svg {
       width: 26px;
       height: 26px;
       flex-shrink: 0;
     }
 
-    /* ── Nav links list ── */
+    /* ── Nav links: horizontal list ── */
     .nav-links {
       display: flex;
       align-items: center;
@@ -87,7 +97,7 @@
       list-style: none;
     }
 
-    /* ── Individual nav link ── */
+    /* ── Individual nav link style ── */
     .nav-links a {
       font-size: 0.88rem;
       font-weight: 400;
@@ -97,7 +107,7 @@
       position: relative;
     }
 
-    /* ── Underline that slides in on hover ── */
+    /* ── Animated underline on hover ── */
     .nav-links a::after {
       content: '';
       position: absolute;
@@ -112,11 +122,8 @@
     .nav-links a:hover        { color: var(--plum); }
     .nav-links a:hover::after { width: 100%; }
 
-    /* ── Active page link ── */
-    .nav-links a.active {
-      color: var(--plum);
-      font-weight: 700;
-    }
+    /* ── Active link: bold and underlined ── */
+    .nav-links a.active        { color: var(--plum); font-weight: 700; }
     .nav-links a.active::after { width: 100%; }
 
     /* ── Join now button ── */
@@ -140,6 +147,422 @@
       transform: translateY(-2px);
     }
 
+    /* ── Hero section: light purple fill, purple outline ── */
+    .hero {
+      background: #F0E6FA;           /* light blush purple fill */
+      border: 2px solid #730FC3;     /* purple outline */
+      padding: 60px 24px;            /* breathing room top and bottom */
+      text-align: center;            /* centres all content */
+      position: relative;            /* needed for z-index to work */
+      overflow: hidden;              /* keeps decorative circle inside */
+    }
+
+    /* ── Faint decorative circle behind hero content ── */
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -100px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      background: rgba(115, 15, 195, 0.04);  /* very faint purple tint */
+    }
+
+    /* ── Hero inner: limits content width and centres it ── */
+    .hero-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;                    /* sits above the decorative circle */
+    }
+
+      /* ── Eyebrow: bold tagline sitting below the main heading ── */
+    .hero-eyebrow {
+      font-family: 'Playfair Display', serif;   /* soft, elegant, rounded feel */
+      font-size: 1rem;      /* big and responsive */
+      font-weight: 700;                          /* thick */
+      color: #FFFFFF;                            /* white */
+      line-height: 1.2;
+      margin-top: 10px;
+      margin-bottom: 20px;
+    }
+
+    /* ── Main hero heading ── */
+    .hero h1 {
+      font-family: 'Lato', sans-serif;     /* clean non-bold feel */
+      font-size: 1.1rem;                   /* small */
+      font-weight: 800;                    /* light, not bold */
+      color: #4a4a4a;                      /* dark grey */
+      letter-spacing: 0.18em;             /* spaced out like a label */
+      text-transform: uppercase;
+      margin-bottom: 0;
+    }
+
+    /* ── Supporting subtext below heading ── */
+    .hero-sub {
+      font-size: 1rem;
+      color: #5a4a6a;                /* dark muted purple for readability */
+      max-width: 540px;
+      margin: 0 auto 32px;           /* centres it and adds space below */
+      line-height: 1.8;
+    }
+
+    /* ── Hero buttons row ── */
+    .hero-btns {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+   /* ── Get started button: deep plum fill ── */
+    .btn-hero-fill {
+      display: inline-block;
+      background: var(--plum);       /* deep plum fill */
+      color: var(--white);
+      font-family: 'Lato', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      padding: 12px 28px;
+      border-radius: 40px;
+      border: 2px solid var(--plum);
+      transition: all 0.2s;
+    }
+
+    .btn-hero-fill:hover {
+      background: var(--plum-dark);
+      border-color: var(--plum-dark);
+      transform: translateY(-2px);
+    }
+
+    /* ── Learn more button: beige fill, deep plum outline ── */
+    .btn-outline-white {
+      display: inline-block;
+      background: var(--beige);      /* beige fill */
+      color: var(--plum);            /* deep plum text */
+      font-family: 'Lato', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      padding: 12px 28px;
+      border-radius: 40px;
+      border: 2px solid var(--plum); /* deep plum outline */
+      transition: all 0.2s;
+    }
+
+    .btn-outline-white:hover {
+      background: var(--beige-dark);
+      transform: translateY(-2px);
+    }
+    /* ── Stats strip: beige background, three columns ── */
+    .stats {
+      background: var(--beige);      /* beige background */
+      padding: 40px 24px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    /* ── Stats inner: centres and spaces the three stats ── */
+    .stats-inner {
+      max-width: 1140px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);   /* three equal columns */
+      gap: 24px;
+    }
+
+    /* ── Individual stat: centred with a right divider ── */
+    .stat {
+      text-align: center;
+      border-right: 1px solid var(--border);   /* divider between stats */
+      padding: 8px 0;
+    }
+
+    /* ── Remove divider from last stat ── */
+    .stat:last-child {
+      border-right: none;
+    }
+
+    /* ── Stat number: large, plum, Playfair font ── */
+    .stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--plum);            /* deep plum number */
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    /* ── Stat label: small uppercase text below number ── */
+    .stat-lbl {
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-mid);        /* muted dark text */
+    }
+  /* ── What we offer section: white background ── */
+    .pillars {
+      background: var(--white);
+      padding: 80px 24px;
+    }
+
+    /* ── Section header: centred label and heading ── */
+    .pillars-header {
+      text-align: center;
+      margin-bottom: 52px;
+    }
+
+    /* ── Small uppercase label above heading ── */
+    .section-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--plum);
+      margin-bottom: 10px;
+    }
+
+    /* ── Section heading ── */
+    .pillars-header h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 10px;
+    }
+
+    /* ── Section subtext ── */
+    .pillars-header p {
+      font-size: 0.92rem;
+      color: var(--text-mid);
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    /* ── Four card grid ── */
+    .pillars-grid {
+      max-width: 1140px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);   /* four equal columns */
+      gap: 24px;
+    }
+
+    /* ── Individual pillar card ── */
+    .pillar-card {
+      background: var(--beige);
+      border-radius: 20px;
+      padding: 32px 24px;
+      border: 1px solid transparent;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .pillar-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 40px rgba(92, 45, 94, 0.1);
+      border-color: var(--blush);
+    }
+
+    /* ── Research card: dark plum to stand out ── */
+    .pillar-card-dark {
+      background: var(--plum-dark);
+      border-radius: 20px;
+      padding: 32px 24px;
+      border: 1px solid transparent;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .pillar-card-dark:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 40px rgba(92, 45, 94, 0.2);
+    }
+
+    /* ── Card icon box ── */
+    .pillar-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      margin-bottom: 18px;
+    }
+
+    .pillar-icon-plum { background: var(--plum-light); }
+    .pillar-icon-pink { background: var(--blush); }
+    .pillar-icon-teal { background: #D5F0E8; }
+    .pillar-icon-dark { background: rgba(255, 255, 255, 0.1); }  /* for dark card */
+
+    /* ── Card heading ── */
+    .pillar-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 10px;
+    }
+
+    /* ── Dark card heading: white ── */
+    .pillar-card-dark h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 10px;
+    }
+
+    /* ── Card description ── */
+    .pillar-card p {
+      font-size: 0.88rem;
+      color: var(--text-mid);
+      line-height: 1.7;
+      margin-bottom: 18px;
+    }
+
+    /* ── Dark card description: light text ── */
+    .pillar-card-dark p {
+      font-size: 0.88rem;
+      color: rgba(255, 255, 255, 0.7);
+      line-height: 1.7;
+      margin-bottom: 18px;
+    }
+
+    /* ── Card link ── */
+    .pillar-link {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--plum);
+      letter-spacing: 0.04em;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: gap 0.2s;
+    }
+
+    .pillar-link:hover { gap: 10px; }
+
+    /* ── Dark card link: blush colour ── */
+    .pillar-link-light {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--blush);
+      letter-spacing: 0.04em;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: gap 0.2s;
+    }
+
+    .pillar-link-light:hover { gap: 10px; }  
+  /* ── Footer: dark plum background ── */
+    .footer {
+      background: var(--plum-dark);
+      color: rgba(255, 255, 255, 0.75);
+      padding: 60px 24px 32px;
+    }
+
+    /* ── Footer inner: centres content ── */
+    .footer-inner {
+      max-width: 1140px;
+      margin: 0 auto;
+    }
+
+    /* ── Footer top: four columns ── */
+    .footer-top {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;  /* brand col wider than others */
+      gap: 48px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      margin-bottom: 32px;
+    }
+
+    /* ── Footer brand name ── */
+    .footer-brand-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      color: var(--white);
+      margin-bottom: 6px;
+    }
+
+    /* ── Footer brand tagline ── */
+    .footer-brand-tag {
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--blush);
+      margin-bottom: 16px;
+    }
+
+    /* ── Footer brand description ── */
+    .footer-brand p {
+      font-size: 0.85rem;
+      line-height: 1.8;
+      max-width: 260px;
+      color: rgba(255, 255, 255, 0.65);
+    }
+
+    /* ── Footer column heading ── */
+    .footer-col h4 {
+      font-family: 'Lato', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 16px;
+    }
+
+    /* ── Footer column links list ── */
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    /* ── Footer link ── */
+    .footer-col ul a {
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.65);
+      transition: color 0.2s;
+    }
+
+    .footer-col ul a:hover { color: var(--blush); }
+
+    /* ── Footer bottom: copyright and social links ── */
+    .footer-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    /* ── Copyright text ── */
+    .footer-bottom p {
+      font-size: 0.78rem;
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    /* ── Social links row ── */
+    .footer-social {
+      display: flex;
+      gap: 16px;
+    }
+
+    /* ── Individual social link ── */
+    .footer-social a {
+      font-size: 0.78rem;
+      color: rgba(255, 255, 255, 0.5);
+      transition: color 0.2s;
+    }
+
+    .footer-social a:hover { color: var(--blush); }  
   </style>
 </head>
 <body>
@@ -147,28 +570,31 @@
   <!-- ── NAVIGATION BAR ── -->
   <nav>
     <div class="nav-inner">
-      
-      <!-- Logo: brand name + SVG lotus flower  -->
+
+      <!-- Logo: brand name first, then lotus SVG -->
       <a href="index.html" class="nav-logo">
-      
-        
-        <!-- Inline SVG lotus flower — petals in blush pink tones -->
+        <span class="nav-logo-brand"></span>
+
+         <!-- Brand name split into two lines -->
+          <span class="brand-text">
+            Her Haven<br>Studio
+          </span>
+
+        <!-- Inline SVG lotus flower — deeper pink tones -->
         <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
           <!-- Centre petal — deep rose pink -->
           <path d="M50 80 C50 80 30 60 30 40 C30 25 40 15 50 15 C60 15 70 25 70 40 C70 60 50 80 50 80Z" fill="#D4537E"/>
           <!-- Left petal — warm rose -->
           <path d="M50 80 C50 80 20 65 15 45 C10 30 18 18 28 20 C38 22 45 38 50 80Z" fill="#C43A68"/>
           <!-- Right petal — warm rose -->
-          <path d="M50 80 C50 80 80 65 85 45 C90 30 82 18 72 20 C62 22 55 38 50 80Z" fill="C43A68"/>
+          <path d="M50 80 C50 80 80 65 85 45 C90 30 82 18 72 20 C62 22 55 38 50 80Z" fill="#C43A68"/>
           <!-- Far left petal — muted rose -->
           <path d="M50 80 C50 80 12 72 8 52 C4 36 14 26 24 30 C34 34 42 55 50 80Z" fill="#E8849E"/>
           <!-- Far right petal — muted rose -->
           <path d="M50 80 C50 80 88 72 92 52 C96 36 86 26 76 30 C66 34 58 55 50 80Z" fill="#E8849E"/>
         </svg>
-         <span class="logo-icon"></span>
-         <span class="brand-name">Her Haven Studio</span>
- 
-        
+
+      </span>
       </a>
 
       <!-- Navigation links -->
@@ -178,7 +604,7 @@
         <li><a href="community.html">Community</a></li>
         <li><a href="wellness.html">Wellness</a></li>
         <li><a href="research.html">Research</a></li>
-        <li><a heref="about us.html">About Us</a></li>
+        <li><a href="about.html">About Us</a></li>
       </ul>
 
       <!-- Call to action button -->
@@ -186,6 +612,184 @@
 
     </div>
   </nav>
+  <!-- nav ends here — hero is outside nav -->
 
+  <!-- ── HERO SECTION ── -->
+   <section class="hero">
+    <div class="hero-inner">
+
+     
+      <!-- Main heading -->
+      <h1>WOMEN-CENTERED<br>WELLNESS</h1>
+
+      <!-- Tagline below heading — bold, white -->
+      <p class="hero-eyebrow">A space made for you to thrive</p>
+
+      <!-- Supporting subtext -->
+      <p class="hero-sub">
+        Fitness, wellness and community —
+        built around women's health.
+      </p>
+
+      <!-- Call to action buttons -->
+      <div class="hero-btns">
+        <!-- Primary button — takes user to registration page -->
+        <a href="register.html" class="btn-hero-fill">Get started</a>
+
+        <!-- Secondary button — takes user to about page -->
+        <a href="about.html" class="btn-outline-white">Learn more</a>
+      </div>
+
+    </div>
+  </section>
+<!-- ── STATS STRIP ── -->
+  <div class="stats">
+    <div class="stats-inner">
+
+      <!-- Stat 1: total members -->
+      <div class="stat">
+        <div class="stat-num">100+</div>
+        <div class="stat-lbl">Members</div>
+      </div>
+
+      <!-- Stat 2: total programmes -->
+      <div class="stat">
+        <div class="stat-num">20+</div>
+        <div class="stat-lbl">Programmes</div>
+      </div>
+
+      <!-- Stat 3: member rating -->
+      <div class="stat">
+        <div class="stat-num">4.9 &#9733;</div>
+        <div class="stat-lbl">Ratings</div>
+      </div>
+
+    </div>
+  </div>
+  <!-- ── WHAT WE OFFER SECTION ── -->
+  <section class="pillars">
+
+    <!-- Section header -->
+    <div class="pillars-header">
+      <p class="section-label">What we offer</p>
+      <h2>Three pillars, one platform</h2>
+      <p>Everything you need to move, heal, and grow — designed around your life as a woman.</p>
+    </div>
+
+    <!-- Four card grid -->
+    <div class="pillars-grid">
+
+      <!-- Card 1: Fitness -->
+      <div class="pillar-card">
+        <!-- Icon -->
+        <div class="pillar-icon pillar-icon-plum">&#128170;</div>
+        <!-- Heading -->
+        <h3>Fitness</h3>
+        <!-- Description -->
+        <p>Strength training, yoga, pilates, and postnatal recovery — programmes designed for women at every stage.</p>
+        <!-- Link -->
+        <a href="classes.html" class="pillar-link">Explore classes &#8594;</a>
+      </div>
+
+      <!-- Card 2: Wellness -->
+      <div class="pillar-card">
+        <!-- Icon -->
+        <div class="pillar-icon pillar-icon-pink">&#127807;</div>
+        <!-- Heading -->
+        <h3>Wellness</h3>
+        <!-- Description -->
+        <p>Nutrition guidance, mental wellness resources, and health education tailored to women's needs.</p>
+        <!-- Link -->
+        <a href="wellness.html" class="pillar-link">Visit wellness hub &#8594;</a>
+      </div>
+
+      <!-- Card 3: Community -->
+      <div class="pillar-card">
+        <!-- Icon -->
+        <div class="pillar-icon pillar-icon-teal">&#128149;</div>
+        <!-- Heading -->
+        <h3>Community</h3>
+        <!-- Description -->
+        <p>Connect with women who understand your journey. Events, stories, and a space where you belong.</p>
+        <!-- Link -->
+        <a href="community.html" class="pillar-link">Join the community &#8594;</a>
+      </div>
+
+      <!-- Card 4: Research & Awareness — dark plum to stand out -->
+      <div class="pillar-card-dark">
+        <!-- Icon -->
+        <div class="pillar-icon pillar-icon-dark">&#128300;</div>
+        <!-- Heading -->
+        <h3>Research &amp; Awareness</h3>
+        <!-- Description -->
+        <p>Collaborating with health professionals and researchers to advance women's health knowledge.</p>
+        <!-- Link -->
+        <a href="research.html" class="pillar-link-light">Explore research &#8594;</a>
+      </div>
+
+    </div>
+  </section>
+  <!-- ── FOOTER ── -->
+  <footer class="footer">
+    <div class="footer-inner">
+
+      <!-- Footer top: brand and link columns -->
+      <div class="footer-top">
+
+        <!-- Brand column -->
+        <div class="footer-brand">
+          <p class="footer-brand-name">Her Haven Studio</p>
+          <p class="footer-brand-tag">Women-Centred Wellness</p>
+          <p>A safe, inclusive space for women to train, heal, and thrive — backed by research, built by community.</p>
+        </div>
+
+        <!-- Platform links -->
+        <div class="footer-col">
+          <h4>Platform</h4>
+          <ul>
+            <li><a href="classes.html">Classes</a></li>
+            <li><a href="wellness.html">Wellness Hub</a></li>
+            <li><a href="booking.html">Book a class</a></li>
+            <li><a href="community.html">Community</a></li>
+          </ul>
+        </div>
+
+        <!-- About links -->
+        <div class="footer-col">
+          <h4>About</h4>
+          <ul>
+            <li><a href="about.html">About us</a></li>
+            <li><a href="research.html">Research</a></li>
+            <li><a href="contributor.html">Contribute</a></li>
+            <li><a href="community.html#enquiries">Contact us</a></li>
+          </ul>
+        </div>
+
+        <!-- Account links -->
+        <div class="footer-col">
+          <h4>Account</h4>
+          <ul>
+            <li><a href="register.html">Create account</a></li>
+            <li><a href="login.html">Log in</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Footer bottom: copyright and social -->
+      <div class="footer-bottom">
+        <!-- Copyright -->
+        <p>&copy; 2025 Her Haven Studio. All rights reserved. &nbsp;|&nbsp; www.herhavenstudio.co.za</p>
+
+        <!-- Social media links -->
+        <div class="footer-social">
+          <a href="#">Instagram</a>
+          <a href="#">Facebook</a>
+          <a href="#">Privacy policy</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
 </body>
 </html>
