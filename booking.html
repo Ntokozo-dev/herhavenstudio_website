@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Booking — Her Haven Studio</title>
+
+  <!-- Google Fonts: Playfair Display for headings, Lato for body text -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet"/>
+
+  <style>
+
+    /* ── Brand colours ── */
+    :root {
+      --plum:       #5C2D5E;
+      --plum-dark:  #3C1A3E;
+      --plum-light: #E8D5E8;
+      --beige:      #F5F0EB;
+      --blush:      #F2D7D9;
+      --white:      #FFFFFF;
+      --text:       #2C2424;
+      --text-mid:   #6A5A5A;
+      --border:     #E0D4D4;
+    }
+
+    /* ── Base reset ── */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* ── Body ── */
+    body {
+      font-family: 'Lato', sans-serif;
+      color: var(--text);
+      background: var(--beige);
+    }
+
+    /* ── Remove underlines from links ── */
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* ── Header: logo left, menu toggle right ── */
+    .booking-header {
+      background: var(--beige);
+      border-bottom: 1px solid var(--border);
+      padding: 0 24px;
+      height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+    }
+
+    /* ── Logo ── */
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--plum);
+    }
+
+    /* ── Logo brand wrapper ── */
+    .nav-logo-brand {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* ── Brand text: two lines ── */
+    .brand-text {
+      line-height: 1.2;
+      font-size: 1rem;
+    }
+
+    /* ── Lotus SVG size ── */
+    .booking-header svg {
+      width: 26px;
+      height: 26px;
+      flex-shrink: 0;
+    }
+
+    /* ── Menu toggle button ── */
+    .menu-toggle {
+      background: none;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      padding: 4px;
+    }
+
+    /* ── Menu toggle lines ── */
+    .menu-toggle span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--plum);
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+
+    /* ── Dropdown menu: hidden by default ── */
+    .menu-dropdown {
+      display: none;
+      position: absolute;
+      top: 68px;
+      right: 0;
+      left: 0;
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      padding: 20px 24px;
+      z-index: 99;
+    }
+
+    /* ── Dropdown menu when open ── */
+    .menu-dropdown.open {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    /* ── Dropdown link ── */
+    .menu-dropdown a {
+      font-size: 0.92rem;
+      color: var(--text-mid);
+      transition: color 0.2s;
+    }
+
+    .menu-dropdown a:hover { color: var(--plum); }
+
+    /* ── Booking page wrapper ── */
+    .booking-page {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 60px 24px;
+    }
+
+    /* ── Page heading ── */
+    .booking-page h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 3vw, 2.4rem);
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+
+    /* ── Page subtext ── */
+    .booking-page .booking-sub {
+      font-size: 0.92rem;
+      color: var(--text-mid);
+      margin-bottom: 32px;
+    }
+
+    /* ── Type pills row ── */
+    .type-pills {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 48px;
+    }
+
+    /* ── Individual type pill ── */
+    .type-pill {
+      display: inline-block;
+      font-family: 'Lato', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      padding: 8px 20px;
+      border-radius: 40px;
+      border: 1.5px solid var(--border);
+      color: var(--text-mid);
+      background: var(--white);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .type-pill:hover {
+      border-color: var(--plum);
+      color: var(--plum);
+    }
+
+    /* ── Active type pill ── */
+    .type-pill.active {
+      background: var(--plum);
+      color: var(--white);
+      border-color: var(--plum);
+    }
+
+    /* ── Two column layout: steps left, form right ── */
+    .booking-layout {
+      display: grid;
+      grid-template-columns: 1fr 2fr;   /* steps column narrower than form */
+      gap: 48px;
+      align-items: start;
+    }
+
+    /* ── Steps column ── */
+    .steps-col {
+      background: var(--white);
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      padding: 32px 24px;
+    }
+
+    /* ── Steps heading ── */
+    .steps-col h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 28px;
+    }
+
+    /* ── Steps list ── */
+    .steps-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    /* ── Individual step ── */
+    .step {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      position: relative;
+      padding-bottom: 28px;
+    }
+
+    /* ── Remove padding from last step ── */
+    .step:last-child {
+      padding-bottom: 0;
+    }
+
+    /* ── Vertical connector line between steps ── */
+    .step::after {
+      content: '';
+      position: absolute;
+      left: 15px;                    /* aligns with centre of step number circle */
+      top: 32px;
+      bottom: 0;
+      width: 1px;
+      background: var(--border);
+    }
+
+    /* ── Remove connector line from last step ── */
+    .step:last-child::after {
+      display: none;
+    }
+
+    /* ── Step number circle ── */
+    .step-num {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.82rem;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    /* ── Active step: filled plum ── */
+    .step-num.active-step {
+      background: var(--plum);
+      color: var(--white);
+    }
+
+    /* ── Inactive step: light plum ── */
+    .step-num.inactive-step {
+      background: var(--plum-light);
+      color: var(--plum);
+    }
+
+    /* ── Step text ── */
+    .step-text strong {
+      display: block;
+      font-size: 0.88rem;
+      color: var(--text);
+      margin-bottom: 2px;
+    }
+
+    .step-text span {
+      font-size: 0.78rem;
+      color: var(--text-mid);
+    }
+
+    /* ── Form column ── */
+    .form-col {
+      background: var(--white);
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      padding: 32px;
+    }
+
+    /* ── Form heading ── */
+    .form-col h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 28px;
+    }
+
+    /* ── Form field group ── */
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    /* ── Field label ── */
+    .form-group label {
+      display: block;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text-mid);
+      margin-bottom: 8px;
+    }
+
+    /* ── Input and select fields ── */
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 12px 16px;
+      font-family: 'Lato', sans-serif;
+      font-size: 0.92rem;
+      color: var(--text);
+      background: var(--beige);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      outline: none;
+      transition: border-color 0.2s;
+      appearance: none;
+    }
+
+    /* ── Focus state ── */
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--plum);
+    }
+
+    /* ── Textarea: taller for health notes ── */
+    .form-group textarea {
+      height: 100px;
+      resize: vertical;              /* allows user to resize vertically only */
+    }
+
+    /* ── Two column row: date and time side by side ── */
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    /* ── Remove bottom margin from form groups inside form-row ── */
+    .form-row .form-group {
+      margin-bottom: 0;
+    }
+
+    /* ── Confirm booking button: full width, deep plum ── */
+    .btn-confirm {
+      display: block;
+      width: 100%;
+      padding: 14px;
+      background: var(--plum);
+      color: var(--white);
+      font-family: 'Lato', sans-serif;
+      font-size: 0.92rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-align: center;
+      border-radius: 40px;
+      border: 2px solid var(--plum);
+      margin-top: 8px;
+      transition: background 0.2s, transform 0.2s;
+      cursor: pointer;
+    }
+
+    .btn-confirm:hover {
+      background: var(--plum-dark);
+      border-color: var(--plum-dark);
+      transform: translateY(-2px);
+    }
+
+    /* ── Footer ── */
+    .footer {
+      background: var(--plum-dark);
+      color: rgba(255, 255, 255, 0.75);
+      padding: 60px 24px 32px;
+    }
+
+    .footer-inner {
+      max-width: 1140px;
+      margin: 0 auto;
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      margin-bottom: 32px;
+    }
+
+    .footer-brand-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      color: var(--white);
+      margin-bottom: 6px;
+    }
+
+    .footer-brand-tag {
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--blush);
+      margin-bottom: 16px;
+    }
+
+    .footer-brand p {
+      font-size: 0.85rem;
+      line-height: 1.8;
+      max-width: 260px;
+      color: rgba(255, 255, 255, 0.65);
+    }
+
+    .footer-col h4 {
+      font-family: 'Lato', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 16px;
+    }
+
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-col ul a {
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.65);
+      transition: color 0.2s;
+    }
+
+    .footer-col ul a:hover { color: var(--blush); }
+
+    .footer-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .footer-bottom p {
+      font-size: 0.78rem;
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 16px;
+    }
+
+    .footer-social a {
+      font-size: 0.78rem;
+      color: rgba(255, 255, 255, 0.5);
+      transition: color 0.2s;
+    }
+
+    .footer-social a:hover { color: var(--blush); }
+
+    /* ── Responsive: stack columns on tablet ── */
+    @media (max-width: 768px) {
+      .booking-layout { grid-template-columns: 1fr; }
+      .footer-top { grid-template-columns: 1fr 1fr; gap: 32px; }
+    }
+
+    /* ── Responsive: single column on mobile ── */
+    @media (max-width: 500px) {
+      .footer-top { grid-template-columns: 1fr; }
+      .form-row   { grid-template-columns: 1fr; }
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- ── HEADER: logo left, menu toggle right ── -->
+  <header class="booking-header">
+
+    <!-- Logo: clicking takes user back to home page -->
+    <a href="index.html" class="nav-logo">
+      <span class="nav-logo-brand">
+
+        <!-- Brand name -->
+        <span class="brand-text">Her Haven<br>Studio</span>
+
+        <!-- Inline SVG lotus flower -->
+        <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Centre petal — deep rose pink -->
+          <path d="M50 80 C50 80 30 60 30 40 C30 25 40 15 50 15 C60 15 70 25 70 40 C70 60 50 80 50 80Z" fill="#D4537E"/>
+          <!-- Left petal — warm rose -->
+          <path d="M50 80 C50 80 20 65 15 45 C10 30 18 18 28 20 C38 22 45 38 50 80Z" fill="#C43A68"/>
+          <!-- Right petal — warm rose -->
+          <path d="M50 80 C50 80 80 65 85 45 C90 30 82 18 72 20 C62 22 55 38 50 80Z" fill="#C43A68"/>
+          <!-- Far left petal — muted rose -->
+          <path d="M50 80 C50 80 12 72 8 52 C4 36 14 26 24 30 C34 34 42 55 50 80Z" fill="#E8849E"/>
+          <!-- Far right petal — muted rose -->
+          <path d="M50 80 C50 80 88 72 92 52 C96 36 86 26 76 30 C66 34 58 55 50 80Z" fill="#E8849E"/>
+        </svg>
+
+      </span>
+    </a>
+
+    <!-- Menu toggle button -->
+    <button class="menu-toggle" id="menuToggle" aria-label="Open menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <!-- Dropdown menu — hidden until toggle is clicked -->
+    <div class="menu-dropdown" id="menuDropdown">
+      <a href="index.html">Home</a>
+      <a href="classes.html">Classes</a>
+      <a href="community.html">Community</a>
+      <a href="wellness.html">Wellness</a>
+      <a href="research.html">Research</a>
+      <a href="about.html">About Us</a>
+      <a href="login.html" style="color: var(--plum); font-weight: 700;">Log in</a>
+    </div>
+
+  </header>
+
+  <!-- ── BOOKING PAGE ── -->
+  <main class="booking-page">
+
+    <!-- Page heading -->
+    <h1>Book a class or session</h1>
+    <p class="booking-sub">Choose your session type, pick a time, and confirm your spot.</p>
+
+    <!-- Type pills: Classes, 1-on-1, Consultations -->
+    <div class="type-pills">
+      <!-- Classes pill active by default -->
+      <span class="type-pill active">Classes</span>
+      <span class="type-pill">1-on-1</span>
+      <span class="type-pill">Consultations</span>
+    </div>
+
+    <!-- Two column layout -->
+    <div class="booking-layout">
+
+      <!-- ── STEPS COLUMN ── -->
+      <div class="steps-col">
+        <h2>How it works</h2>
+
+        <div class="steps-list">
+
+          <!-- Step 1: active -->
+          <div class="step">
+            <!-- Active step number circle -->
+            <div class="step-num active-step">1</div>
+            <div class="step-text">
+              <strong>Choose programme</strong>
+              <span>Select the class you want</span>
+            </div>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="step">
+            <div class="step-num inactive-step">2</div>
+            <div class="step-text">
+              <strong>Select date &amp; time</strong>
+              <span>Pick an available slot</span>
+            </div>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="step">
+            <div class="step-num inactive-step">3</div>
+            <div class="step-text">
+              <strong>Enter your details</strong>
+              <span>Name, email, health notes</span>
+            </div>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="step">
+            <div class="step-num inactive-step">4</div>
+            <div class="step-text">
+              <strong>Confirm booking</strong>
+              <span>Confirmation sent by email</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ── FORM COLUMN ── -->
+      <div class="form-col">
+        <h2>Booking form</h2>
+
+        <!-- Programme dropdown -->
+        <div class="form-group">
+          <label for="programme">Programme</label>
+          <select id="programme">
+            <option value="" disabled selected>Select a programme</option>
+            <!-- Strength options -->
+            <option value="weightlifting">Strength — Weightlifting</option>
+            <option value="powerlifting">Strength — Powerlifting</option>
+            <option value="calisthenics">Strength — Body-weight (Calisthenics)</option>
+            <!-- Yoga options -->
+            <option value="prenatal-yoga">Yoga — Prenatal</option>
+            <option value="align-yoga">Yoga — Align</option>
+            <option value="flow-yoga">Yoga — Flow</option>
+            <option value="hot-yoga">Yoga — Hot</option>
+            <!-- Pilates options -->
+            <option value="align-pilates">Pilates — Align</option>
+            <option value="athletic-pilates">Pilates — Athletic</option>
+            <!-- Recovery options -->
+            <option value="postnatal-yoga">Recovery — Postnatal yoga</option>
+            <!-- Cardio options -->
+            <option value="dance">Cardio — Dance</option>
+            <option value="boxing">Cardio — Boxing</option>
+            <option value="cycle">Cardio — Cycle</option>
+            <!-- Meditation options -->
+            <option value="exam-stress">Meditation — Exam stress relief</option>
+            <option value="bedtime">Meditation — Bedtime wind-down</option>
+            <option value="healing">Meditation — Healing</option>
+            <option value="focus">Meditation — Focus &amp; clarity</option>
+          </select>
+        </div>
+
+        <!-- Date and time side by side -->
+        <div class="form-row">
+
+          <!-- Date field -->
+          <div class="form-group">
+            <label for="date">Date</label>
+            <input type="date" id="date"/>
+          </div>
+
+          <!-- Time slot field -->
+          <div class="form-group">
+            <label for="time">Time slot</label>
+            <select id="time">
+              <option value="" disabled selected>Select a time</option>
+              <option value="06:00">06:00 — 07:00</option>
+              <option value="08:00">08:00 — 09:00</option>
+              <option value="09:00">09:00 — 10:00</option>
+              <option value="10:00">10:00 — 11:00</option>
+              <option value="12:00">12:00 — 13:00</option>
+              <option value="17:00">17:00 — 18:00</option>
+              <option value="18:00">18:00 — 19:00</option>
+              <option value="19:00">19:00 — 20:00</option>
+            </select>
+          </div>
+
+        </div>
+
+        <!-- Full name field -->
+        <div class="form-group">
+          <label for="fullname">Full name</label>
+          <input type="text" id="fullname" placeholder="e.g. Thandi Nkosi"/>
+        </div>
+
+        <!-- Email field -->
+        <div class="form-group">
+          <label for="email">Email address</label>
+          <input type="email" id="email" placeholder="you@example.com"/>
+        </div>
+
+        <!-- Health notes field -->
+        <div class="form-group">
+          <label for="health-notes">Health notes (optional)</label>
+          <textarea id="health-notes" placeholder="Any conditions or injuries we should know about"></textarea>
+        </div>
+
+        <!-- Confirm booking button -->
+        <a href="#" class="btn-confirm">Confirm booking</a>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- ── FOOTER ── -->
+  <footer class="footer">
+    <div class="footer-inner">
+
+      <div class="footer-top">
+
+        <!-- Brand column -->
+        <div class="footer-brand">
+          <p class="footer-brand-name">Her Haven Studio</p>
+          <p class="footer-brand-tag">Women-Centred Wellness</p>
+          <p>A safe, inclusive space for women to train, heal, and thrive — backed by research, built by community.</p>
+        </div>
+
+        <!-- Platform links -->
+        <div class="footer-col">
+          <h4>Platform</h4>
+          <ul>
+            <li><a href="classes.html">Classes</a></li>
+            <li><a href="wellness.html">Wellness Hub</a></li>
+            <li><a href="booking.html">Book a class</a></li>
+            <li><a href="community.html">Community</a></li>
+          </ul>
+        </div>
+
+        <!-- About links -->
+        <div class="footer-col">
+          <h4>About</h4>
+          <ul>
+            <li><a href="about.html">About us</a></li>
+            <li><a href="research.html">Research</a></li>
+            <li><a href="contributor.html">Contribute</a></li>
+            <li><a href="community.html#enquiries">Contact us</a></li>
+          </ul>
+        </div>
+
+        <!-- Account links -->
+        <div class="footer-col">
+          <h4>Account</h4>
+          <ul>
+            <li><a href="register.html">Create account</a></li>
+            <li><a href="login.html">Log in</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Copyright and social -->
+      <div class="footer-bottom">
+        <p>&copy; 2025 Her Haven Studio. All rights reserved. &nbsp;|&nbsp; www.herhavenstudio.co.za</p>
+        <div class="footer-social">
+          <a href="#">Instagram</a>
+          <a href="#">Facebook</a>
+          <a href="#">Privacy policy</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <script>
+    /* ── Menu toggle ── */
+    const menuToggle   = document.getElementById('menuToggle');
+    const menuDropdown = document.getElementById('menuDropdown');
+
+    menuToggle.addEventListener('click', () => {
+      menuDropdown.classList.toggle('open');
+    });
+
+    /* ── Type pills: clicking switches active state ── */
+    const typePills = document.querySelectorAll('.type-pill');
+
+    typePills.forEach(pill => {
+      pill.addEventListener('click', () => {
+        /* ── Remove active from all pills ── */
+        typePills.forEach(p => p.classList.remove('active'));
+        /* ── Add active to clicked pill ── */
+        pill.classList.add('active');
+      });
+    });
+  </script>
+
+</body>
+</html>

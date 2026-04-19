@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Classes — Her Haven Studio</title>
+
+  <!-- Google Fonts: Playfair Display for headings, Lato for body text -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet"/>
+
+  <style>
+
+    /* ── Brand colours ── */
+    :root {
+      --plum:       #5C2D5E;
+      --plum-dark:  #3C1A3E;
+      --plum-light: #E8D5E8;
+      --beige:      #F5F0EB;
+      --blush:      #F2D7D9;
+      --white:      #FFFFFF;
+      --text:       #2C2424;
+      --text-mid:   #6A5A5A;
+      --border:     #E0D4D4;
+    }
+
+    /* ── Base reset ── */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* ── Body ── */
+    body {
+      font-family: 'Lato', sans-serif;
+      color: var(--text);
+      background: var(--white);
+    }
+
+    /* ── Remove underlines from links ── */
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* ── Sticky nav ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--beige);
+      border-bottom: 1px solid var(--border);
+    }
+
+    /* ── Nav inner ── */
+    .nav-inner {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 24px;
+      height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    /* ── Logo ── */
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--plum);
+    }
+
+    /* ── Logo brand wrapper ── */
+    .nav-logo-brand {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* ── Brand text: two lines ── */
+    .brand-text {
+      line-height: 1.2;
+      font-size: 1rem;
+    }
+
+    /* ── Lotus SVG size ── */
+    .nav-logo svg {
+      width: 26px;
+      height: 26px;
+      flex-shrink: 0;
+    }
+
+    /* ── Nav links ── */
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+      list-style: none;
+    }
+
+    /* ── Individual nav link ── */
+    .nav-links a {
+      font-size: 0.88rem;
+      font-weight: 400;
+      color: var(--text-mid);
+      letter-spacing: 0.02em;
+      transition: color 0.2s;
+      position: relative;
+    }
+
+    /* ── Animated underline on hover ── */
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 1.5px;
+      background: var(--plum);
+      transition: width 0.2s;
+    }
+
+    .nav-links a:hover        { color: var(--plum); }
+    .nav-links a:hover::after { width: 100%; }
+
+    /* ── Active page link ── */
+    .nav-links a.active        { color: var(--plum); font-weight: 700; }
+    .nav-links a.active::after { width: 100%; }
+
+    /* ── Join now button ── */
+    .btn-join {
+      display: inline-block;
+      background: var(--plum);
+      color: var(--white);
+      font-family: 'Lato', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      padding: 10px 24px;
+      border-radius: 40px;
+      border: 2px solid var(--plum);
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .btn-join:hover {
+      background: var(--plum-dark);
+      border-color: var(--plum-dark);
+      transform: translateY(-2px);
+    }
+
+    /* ── Page hero: beige background with page title ── */
+    .page-hero {
+      background: var(--beige);
+      padding: 60px 24px;
+      text-align: center;
+      border-bottom: 1px solid var(--border);
+    }
+
+    /* ── Small uppercase label above heading ── */
+    .page-hero .section-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--plum);
+      margin-bottom: 10px;
+    }
+
+    /* ── Page heading ── */
+    .page-hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 12px;
+    }
+
+    /* ── Page subtext ── */
+    .page-hero p {
+      font-size: 0.95rem;
+      color: var(--text-mid);
+      max-width: 500px;
+      margin: 0 auto;
+      line-height: 1.8;
+    }
+
+    /* ── Classes section ── */
+    .classes-section {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 60px 24px;
+    }
+
+    /* ── Filter pills row ── */
+    .filter-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 48px;
+      justify-content: center;
+    }
+
+    /* ── Individual filter pill ── */
+    .filter-pill {
+      display: inline-block;
+      font-family: 'Lato', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      padding: 8px 20px;
+      border-radius: 40px;
+      border: 1.5px solid var(--border);
+      color: var(--text-mid);
+      background: var(--white);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    /* ── Filter pill hover ── */
+    .filter-pill:hover {
+      border-color: var(--plum);
+      color: var(--plum);
+    }
+
+    /* ── Active filter pill: filled plum ── */
+    .filter-pill.active {
+      background: var(--plum);
+      color: var(--white);
+      border-color: var(--plum);
+    }
+
+    /* ── Cards grid: three columns ── */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    /* ── Individual class card ── */
+    .class-card {
+      background: var(--white);
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      overflow: hidden;              /* keeps image inside rounded corners */
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .class-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 40px rgba(92, 45, 94, 0.1);
+    }
+
+    /* ── Card image placeholder ── */
+    .card-img {
+      width: 100%;
+      height: 160px;
+      background: var(--beige);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-mid);
+      font-size: 0.78rem;
+      letter-spacing: 0.06em;
+      border-bottom: 1px solid var(--border);
+      position: relative;
+    }
+
+    /* ── Category tag inside image ── */
+    .card-img .card-tag {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      padding: 4px 12px;
+      border-radius: 20px;
+    }
+
+    /* ── Card body: padding around text content ── */
+    .card-body {
+      padding: 24px;
+    }
+
+    /* ── Card title ── */
+    .card-body h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+
+    /* ── Card subcategories label ── */
+    .card-body .card-sub-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--plum);
+      margin-bottom: 10px;
+    }
+
+    /* ── Subcategory list ── */
+    .card-body ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 20px;
+    }
+
+    /* ── Individual subcategory item ── */
+    .card-body ul li {
+      font-size: 0.88rem;
+      color: var(--text-mid);
+      padding-left: 14px;
+      position: relative;
+    }
+
+    /* ── Bullet dot before each subcategory ── */
+    .card-body ul li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 8px;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--plum-light);
+    }
+
+    /* ── Book button on card ── */
+    .card-btn {
+      display: inline-block;
+      font-family: 'Lato', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      padding: 9px 22px;
+      border-radius: 40px;
+      background: var(--plum);
+      color: var(--white);
+      border: 2px solid var(--plum);
+      transition: all 0.2s;
+    }
+
+    .card-btn:hover {
+      background: var(--plum-dark);
+      border-color: var(--plum-dark);
+      transform: translateY(-2px);
+    }
+
+    /* ── Tag colour variants ── */
+    .tag-plum   { background: var(--plum-light); color: var(--plum-dark); }
+    .tag-pink   { background: var(--blush);      color: #72243E; }
+    .tag-teal   { background: #D5F0E8;           color: #085041; }
+    .tag-amber  { background: #FAE8C0;           color: #7A4A00; }
+    .tag-blue   { background: #D5E8F5;           color: #0A3D6B; }
+    .tag-green  { background: #DCF0D5;           color: #1A5C0A; }
+
+    /* ── Hidden card: used by filter JS ── */
+    .class-card.hidden {
+      display: none;
+    }
+
+    /* ── Footer ── */
+    .footer {
+      background: var(--plum-dark);
+      color: rgba(255, 255, 255, 0.75);
+      padding: 60px 24px 32px;
+    }
+
+    .footer-inner {
+      max-width: 1140px;
+      margin: 0 auto;
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      margin-bottom: 32px;
+    }
+
+    .footer-brand-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      color: var(--white);
+      margin-bottom: 6px;
+    }
+
+    .footer-brand-tag {
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--blush);
+      margin-bottom: 16px;
+    }
+
+    .footer-brand p {
+      font-size: 0.85rem;
+      line-height: 1.8;
+      max-width: 260px;
+      color: rgba(255, 255, 255, 0.65);
+    }
+
+    .footer-col h4 {
+      font-family: 'Lato', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 16px;
+    }
+
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-col ul a {
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.65);
+      transition: color 0.2s;
+    }
+
+    .footer-col ul a:hover { color: var(--blush); }
+
+    .footer-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .footer-bottom p {
+      font-size: 0.78rem;
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 16px;
+    }
+
+    .footer-social a {
+      font-size: 0.78rem;
+      color: rgba(255, 255, 255, 0.5);
+      transition: color 0.2s;
+    }
+
+    .footer-social a:hover { color: var(--blush); }
+
+    /* ── Responsive: two columns on tablet ── */
+    @media (max-width: 900px) {
+      .cards-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-top { grid-template-columns: 1fr 1fr; gap: 32px; }
+    }
+
+    /* ── Responsive: one column on mobile ── */
+    @media (max-width: 600px) {
+      .cards-grid { grid-template-columns: 1fr; }
+      .footer-top { grid-template-columns: 1fr; gap: 24px; }
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- ── NAVIGATION BAR ── -->
+  <nav>
+    <div class="nav-inner">
+
+      <!-- Logo: brand name and lotus -->
+      <a href="index.html" class="nav-logo">
+        <span class="nav-logo-brand">
+          <span class="brand-text">Her Haven<br>Studio</span>
+          <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Centre petal — deep rose pink -->
+            <path d="M50 80 C50 80 30 60 30 40 C30 25 40 15 50 15 C60 15 70 25 70 40 C70 60 50 80 50 80Z" fill="#D4537E"/>
+            <!-- Left petal — warm rose -->
+            <path d="M50 80 C50 80 20 65 15 45 C10 30 18 18 28 20 C38 22 45 38 50 80Z" fill="#C43A68"/>
+            <!-- Right petal — warm rose -->
+            <path d="M50 80 C50 80 80 65 85 45 C90 30 82 18 72 20 C62 22 55 38 50 80Z" fill="#C43A68"/>
+            <!-- Far left petal — muted rose -->
+            <path d="M50 80 C50 80 12 72 8 52 C4 36 14 26 24 30 C34 34 42 55 50 80Z" fill="#E8849E"/>
+            <!-- Far right petal — muted rose -->
+            <path d="M50 80 C50 80 88 72 92 52 C96 36 86 26 76 30 C66 34 58 55 50 80Z" fill="#E8849E"/>
+          </svg>
+        </span>
+      </a>
+
+      <!-- Navigation links — Classes is active on this page -->
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="classes.html" class="active">Classes</a></li>
+        <li><a href="community.html">Community</a></li>
+        <li><a href="wellness.html">Wellness</a></li>
+        <li><a href="research.html">Research</a></li>
+        <li><a href="about.html">About Us</a></li>
+      </ul>
+
+      <!-- Join now button -->
+      <a href="register.html" class="btn-join">Join now</a>
+
+    </div>
+  </nav>
+
+  <!-- ── PAGE HERO ── -->
+  <div class="page-hero">
+    <!-- Small label above heading -->
+    <p class="section-label">Move with us</p>
+    <!-- Page heading -->
+    <h1>Classes</h1>
+    <!-- Supporting subtext -->
+    <p>Find the right class for your body, your goals, and where you are right now.</p>
+  </div>
+
+  <!-- ── CLASSES SECTION ── -->
+  <section class="classes-section">
+
+    <!-- Filter pills — clicking a pill filters the cards below -->
+    <div class="filter-row">
+      <!-- All pill is active by default -->
+      <span class="filter-pill active" data-filter="all">All</span>
+      <span class="filter-pill" data-filter="strength">Strength</span>
+      <span class="filter-pill" data-filter="yoga">Yoga</span>
+      <span class="filter-pill" data-filter="pilates">Pilates</span>
+      <span class="filter-pill" data-filter="recovery">Recovery</span>
+      <span class="filter-pill" data-filter="cardio">Cardio</span>
+      <span class="filter-pill" data-filter="meditation">Meditation</span>
+    </div>
+
+    <!-- Cards grid — each card has a data-category matching the filter pills -->
+    <div class="cards-grid">
+
+      <!-- ── STRENGTH CARD ── -->
+      <div class="class-card" data-category="strength">
+        <!-- Image placeholder -->
+        <div class="card-img">
+          <!-- Category tag overlaid on image -->
+          <span class="card-tag tag-plum">Strength</span>
+          image
+        </div>
+        <div class="card-body">
+          <!-- Card title -->
+          <h3>Strength training</h3>
+          <!-- Subcategories label -->
+          <p class="card-sub-label">Choose your style</p>
+          <!-- Subcategory list -->
+          <ul>
+            <li>Weightlifting</li>
+            <li>Powerlifting</li>
+            <li>Body-weight (Calisthenics)</li>
+          </ul>
+          <!-- Book button -->
+          <a href="booking.html" class="card-btn">Book a class</a>
+        </div>
+      </div>
+
+      <!-- ── YOGA CARD ── -->
+      <div class="class-card" data-category="yoga">
+        <div class="card-img">
+          <span class="card-tag tag-teal">Yoga</span>
+          image
+        </div>
+        <div class="card-body">
+          <h3>Yoga</h3>
+          <p class="card-sub-label">Choose your style</p>
+          <ul>
+            <li>Prenatal yoga</li>
+            <li>Align yoga</li>
+            <li>Flow yoga</li>
+            <li>Hot yoga</li>
+          </ul>
+          <a href="booking.html" class="card-btn">Book a class</a>
+        </div>
+      </div>
+
+      <!-- ── PILATES CARD ── -->
+      <div class="class-card" data-category="pilates">
+        <div class="card-img">
+          <span class="card-tag tag-pink">Pilates</span>
+          image
+        </div>
+        <div class="card-body">
+          <h3>Pilates</h3>
+          <p class="card-sub-label">Choose your style</p>
+          <ul>
+            <li>Align pilates</li>
+            <li>Athletic pilates</li>
+          </ul>
+          <a href="booking.html" class="card-btn">Book a class</a>
+        </div>
+      </div>
+
+      <!-- ── RECOVERY CARD ── -->
+      <div class="class-card" data-category="recovery">
+        <div class="card-img">
+          <span class="card-tag tag-green">Recovery</span>
+          image
+        </div>
+        <div class="card-body">
+          <h3>Recovery</h3>
+          <p class="card-sub-label">Choose your style</p>
+          <ul>
+            <li>Postnatal yoga</li>
+          </ul>
+          <a href="booking.html" class="card-btn">Book a class</a>
+        </div>
+      </div>
+
+      <!-- ── CARDIO CARD ── -->
+      <div class="class-card" data-category="cardio">
+        <div class="card-img">
+          <span class="card-tag tag-amber">Cardio</span>
+          image
+        </div>
+        <div class="card-body">
+          <h3>Cardio</h3>
+          <p class="card-sub-label">Choose your style</p>
+          <ul>
+            <li>Dance</li>
+            <li>Boxing</li>
+            <li>Cycle</li>
+          </ul>
+          <a href="booking.html" class="card-btn">Book a class</a>
+        </div>
+      </div>
+
+      <!-- ── MEDITATION CARD ── -->
+      <div class="class-card" data-category="meditation">
+        <div class="card-img">
+          <span class="card-tag tag-blue">Meditation</span>
+          image
+        </div>
+        <div class="card-body">
+          <h3>Meditation</h3>
+          <p class="card-sub-label">Choose your focus</p>
+          <ul>
+            <li>Exam stress relief</li>
+            <li>Bedtime wind-down</li>
+            <li>Healing meditation</li>
+            <li>Focus &amp; clarity</li>
+          </ul>
+          <a href="booking.html" class="card-btn">Book a class</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer class="footer">
+    <div class="footer-inner">
+
+      <div class="footer-top">
+
+        <!-- Brand column -->
+        <div class="footer-brand">
+          <p class="footer-brand-name">Her Haven Studio</p>
+          <p class="footer-brand-tag">Women-Centred Wellness</p>
+          <p>A safe, inclusive space for women to train, heal, and thrive — backed by research, built by community.</p>
+        </div>
+
+        <!-- Platform links -->
+        <div class="footer-col">
+          <h4>Platform</h4>
+          <ul>
+            <li><a href="classes.html">Classes</a></li>
+            <li><a href="wellness.html">Wellness Hub</a></li>
+            <li><a href="booking.html">Book a class</a></li>
+            <li><a href="community.html">Community</a></li>
+          </ul>
+        </div>
+
+        <!-- About links -->
+        <div class="footer-col">
+          <h4>About</h4>
+          <ul>
+            <li><a href="about.html">About us</a></li>
+            <li><a href="research.html">Research</a></li>
+            <li><a href="contributor.html">Contribute</a></li>
+            <li><a href="community.html#enquiries">Contact us</a></li>
+          </ul>
+        </div>
+
+        <!-- Account links -->
+        <div class="footer-col">
+          <h4>Account</h4>
+          <ul>
+            <li><a href="register.html">Create account</a></li>
+            <li><a href="login.html">Log in</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Copyright and social -->
+      <div class="footer-bottom">
+        <p>&copy; 2025 Her Haven Studio. All rights reserved. &nbsp;|&nbsp; www.herhavenstudio.co.za</p>
+        <div class="footer-social">
+          <a href="#">Instagram</a>
+          <a href="#">Facebook</a>
+          <a href="#">Privacy policy</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <script>
+    /* ── Filter pills: clicking a pill shows only matching cards ── */
+    const pills = document.querySelectorAll('.filter-pill');
+    const cards = document.querySelectorAll('.class-card');
+
+    pills.forEach(pill => {
+      pill.addEventListener('click', () => {
+
+        /* ── Remove active class from all pills ── */
+        pills.forEach(p => p.classList.remove('active'));
+
+        /* ── Add active class to clicked pill ── */
+        pill.classList.add('active');
+
+        /* ── Get the filter value from the clicked pill ── */
+        const filter = pill.getAttribute('data-filter');
+
+        /* ── Show or hide cards based on filter ── */
+        cards.forEach(card => {
+          if (filter === 'all' || card.getAttribute('data-category') === filter) {
+            /* ── Show card if it matches filter or all is selected ── */
+            card.classList.remove('hidden');
+          } else {
+            /* ── Hide card if it does not match filter ── */
+            card.classList.add('hidden');
+          }
+        });
+
+      });
+    });
+  </script>
+
+</body>
+</html>
