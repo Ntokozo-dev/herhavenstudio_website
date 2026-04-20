@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login — Her Haven Studio</title>
+  <title>Register — Her Haven Studio</title>
 </head>
 <body>
 
-  <!-- LOGIN HEADER: logo left, menu toggle right -->
+  <!-- HEADER: logo left, menu toggle right -->
   <header class="login-header">
 
     <!-- Logo: clicking takes user back to home page -->
@@ -33,28 +33,40 @@
       <a href="wellness.html">Wellness</a>
       <a href="research.html">Research</a>
       <a href="about.html">About Us</a>
-      <!-- Join now link at bottom of menu -->
-      <a href="register.html">Join now</a>
+      <!-- Log in link at bottom of menu -->
+      <a href="login.html">Log in</a>
     </div>
 
   </header>
 
-  <!-- LOGIN PAGE -->
-  <main class="login-page">
+  <!-- REGISTRATION PAGE -->
+  <main class="register-page">
 
-    <!-- Login form card -->
-    <div class="login-card">
+    <!-- Registration form card -->
+    <div class="register-card">
 
-      <!-- Avatar circle at top -->
-      <div class="login-avatar">
-        <span>HH</span>
-      </div>
-
-      <!-- Welcome heading -->
-      <h1>Welcome back</h1>
+      <!-- Create account heading -->
+      <h1>Create your account</h1>
 
       <!-- Subtext below heading -->
-      <p class="login-sub">Log in to your Her Haven Studio account</p>
+      <p class="register-sub">Join the Her Haven Studio community today</p>
+
+      <!-- First name and last name side by side -->
+      <div class="form-row">
+
+        <!-- First name field -->
+        <div class="form-group">
+          <label for="firstname">First name</label>
+          <input type="text" id="firstname" placeholder="e.g. Thandi">
+        </div>
+
+        <!-- Last name field -->
+        <div class="form-group">
+          <label for="lastname">Last name</label>
+          <input type="text" id="lastname" placeholder="e.g. Nkosi">
+        </div>
+
+      </div>
 
       <!-- Email field -->
       <div class="form-group">
@@ -65,26 +77,48 @@
       <!-- Password field -->
       <div class="form-group">
         <label for="password">Password</label>
-        <input type="password" id="password" placeholder="Enter your password">
-        <!-- Forgot password link sits below the input -->
-        <a href="#" class="forgot-link">Forgot password?</a>
+        <input type="password" id="password" placeholder="Create a password">
       </div>
 
-      <!-- Log in button -->
-      <a href="index.html" class="btn-login">Log in</a>
-
-      <!-- Or divider -->
-      <div class="divider">
-        <span>or</span>
+      <!-- Confirm password field -->
+      <div class="form-group">
+        <label for="confirm-password">Confirm password</label>
+        <input type="password" id="confirm-password" placeholder="Repeat your password">
       </div>
 
-      <!-- Continue with Google button -->
-      <a href="#" class="btn-google">Continue with Google</a>
+      <!-- Primary health interest dropdown -->
+      <div class="form-group">
+        <label for="health-interest">Primary health interest</label>
+        <select id="health-interest">
+          <option value="" disabled selected>Select an option</option>
+          <option value="general">General fitness</option>
+          <option value="postnatal">Postnatal recovery</option>
+          <option value="pcos">PCOS management</option>
+          <option value="endometriosis">Endometriosis support</option>
+          <option value="mental-wellness">Mental wellness</option>
+          <option value="nutrition">Nutrition guidance</option>
+        </select>
+      </div>
 
-      <!-- Sign up link -->
-      <p class="login-footer">
-        Don't have an account?
-        <a href="register.html">Create one</a>
+      <!-- Terms and privacy policy checkbox -->
+      <div class="form-check">
+        <input type="checkbox" id="terms">
+        <!-- Label references the checkbox by its id -->
+        <label for="terms">
+          I agree to the
+          <a href="#">terms of service</a>
+          and
+          <a href="#">privacy policy</a>
+        </label>
+      </div>
+
+      <!-- Create account button -->
+      <a href="index.html" class="btn-register">Create account</a>
+
+      <!-- Log in link at bottom -->
+      <p class="register-footer">
+        Already have an account?
+        <a href="login.html">Log in</a>
       </p>
 
     </div>
