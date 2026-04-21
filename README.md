@@ -45,9 +45,10 @@ entry 5 - made size adjustments to fit page and context
 entry 6 - removed menu bar will add back once we can include js and filter pills
 
 7. References
-(a) Mozilla Developer Network (2025). HTML: HyperText Markup Language. [online] Available at: https://developer.mozilla.org/en-US/docs/Web/HTML [Accessed 20 April 2025].
-(b) Pexels (2025). Free stock photos. [online] Available at: https://www.pexels.com [Accessed 20 April 2025].
-(c) Unsplash (2025). Free high-resolution photos. [online] Available at: https://unsplash.com [Accessed 20 April 2025].
-(d) Visual Studio Code (2025). Visual Studio Code — Code Editing. [online] Available at: https://code.visualstudio.com [Accessed 20 April 2025].
-(e)Whimsical (2025). Whimsical — The Visual Workspace. [online] Available at: https://whimsical.com [Accessed 20 April 2025].
-(f) W3Schools (2025). HTML Tutorial. [online] Available at: https://www.w3schools.com/html [Accessed 20 April 2025].
+(a) Florida Endocrinology and Diabetes Center (2026) How (and why) to cycle your exercise with your menstrual cycle. Available at: View article (Accessed: 21 April 2026).
+(b) Mozilla Developer Network (2025). HTML: HyperText Markup Language. [online] Available at: https://developer.mozilla.org/en-US/docs/Web/HTML [Accessed 20 April 2025].
+(c) Pexels (2025). Free stock photos. [online] Available at: https://www.pexels.com [Accessed 20 April 2025].
+(d) Unsplash (2025). Free high-resolution photos. [online] Available at: https://unsplash.com [Accessed 20 April 2025].
+(e) Visual Studio Code (2025). Visual Studio Code — Code Editing. [online] Available at: https://code.visualstudio.com [Accessed 20 April 2025].
+(f)Whimsical (2025). Whimsical — The Visual Workspace. [online] Available at: https://whimsical.com [Accessed 20 April 2025].
+(g) W3Schools (2025). HTML Tutorial. [online] Available at: https://www.w3schools.com/html [Accessed 20 April 2025].
