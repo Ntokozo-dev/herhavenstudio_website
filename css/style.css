@@ -1,0 +1,35 @@
+/* ── Import Google Fonts ── */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap');
+
+/* ── Brand colours as reusable variables ── */
+:root {
+  --plum:       #5C2D5E;
+  --plum-dark:  #3C1A3E;
+  --plum-light: #E8D5E8;
+  --beige:      #F5F0EB;
+  --blush:      #F2D7D9;
+  --white:      #FFFFFF;
+  --text:       #2C2424;
+  --text-mid:   #6A5A5A;
+  --border:     #E0D4D4;
+}
+
+/* ── Base reset — removes default spacing from all elements ── */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ── Body — sets default font and background colour ── */
+body {
+  font-family: 'Lato', sans-serif;
+  color: var(--text);
+  background: var(--white);
+}
+
+/* ── Remove underlines from all links ── */
+a {
+  text-decoration: none;
+  color: inherit;
+}
