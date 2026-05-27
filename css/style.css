@@ -33,3 +33,488 @@ a {
   text-decoration: none;
   color: inherit;
 }
+/* ── Navigation bar ── */
+nav {
+  background-color: var(--beige);
+  padding: 16px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+}
+
+/* ── Navigation links list ── */
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 32px;
+}
+
+/* ── Individual navigation link ── */
+.nav-links a {
+  font-family: 'Lato', sans-serif;
+  font-size: 0.88rem;
+  color: var(--text-mid);
+  text-decoration: none;
+}
+
+/* ── Navigation link when hovered ── */
+.nav-links a:hover {
+  color: var(--plum);
+}
+
+/* ── Join now button ── */
+.btn-join {
+  background-color: var(--plum);
+  color: var(--white);
+  padding: 10px 24px;
+  border-radius: 40px;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+/* ── Join now button when hovered ── */
+.btn-join:hover {
+  background-color: var(--plum-dark);
+}
+/* ── Navigation bar — beige background, full width ── */
+nav {
+  background-color: var(--beige);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  width: 100%;
+}
+
+/* ── Nav inner — centres content and spaces items apart ── */
+.nav-inner {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 16px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+/* ── Navigation links list — horizontal row ── */
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 32px;
+}
+
+/* ── Individual navigation link ── */
+.nav-links a {
+  font-family: 'Lato', sans-serif;
+  font-size: 0.88rem;
+  color: var(--text-mid);
+  text-decoration: none;
+}
+
+/* ── Navigation link when hovered ── */
+.nav-links a:hover {
+  color: var(--plum);
+}
+
+/* ── Join now button ── */
+.btn-join {
+  background-color: var(--plum);
+  color: var(--white);
+  padding: 10px 24px;
+  border-radius: 40px;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+/* ── Join now button when hovered ── */
+.btn-join:hover {
+  background-color: var(--plum-dark);
+}
+/* ── Hero section — light purple background with dark purple border ── */
+.hero {
+  background-color: #F0E6FA;
+  border: 2px solid #730FC3;
+  padding: 80px 40px;
+  text-align: center;
+}
+
+/* ── Hero inner — limits width and centres content ── */
+.hero-inner {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* ── Main heading — small and light ── */
+.hero h1 {
+  font-family: 'Lato', sans-serif;
+  font-size: 1rem;
+  font-weight: 300;
+  color: #4a4a4a;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+/* ── Tagline — big bold and centred ── */
+.hero-eyebrow {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: #730FC3;
+  line-height: 1.2;
+  margin-bottom: 16px;
+}
+
+/* ── Supporting subtext — small and muted ── */
+.hero-sub {
+  font-size: 0.95rem;
+  color: #5a4a6a;
+  margin-bottom: 32px;
+  line-height: 1.8;
+}
+
+/* ── Hero image — fits inside the hero box ── */
+.hero img {
+  width: 100%;
+  max-width: 600px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 32px;
+}
+
+/* ── Buttons row — side by side and centred ── */
+.hero-btns {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+}
+
+/* ── Get started button — deep plum fill ── */
+.btn-hero-fill {
+  background-color: var(--plum);
+  color: var(--white);
+  padding: 14px 32px;
+  border-radius: 40px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+/* ── Get started button when hovered ── */
+.btn-hero-fill:hover {
+  background-color: var(--plum-dark);
+}
+
+/* ── Learn more button — beige fill with plum outline ── */
+.btn-outline-white {
+  background-color: var(--beige);
+  color: var(--plum);
+  padding: 14px 32px;
+  border-radius: 40px;
+  border: 2px solid var(--plum);
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+/* ── Learn more button when hovered ── */
+.btn-outline-white:hover {
+  background-color: var(--plum-light);
+}
+/* ── Logo wrapper: keeps name on one line, pushes to far left ── */
+.nav-logo-brand {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--plum);
+  text-decoration: none;
+  white-space: nowrap;
+  margin-right: auto;
+}
+
+
+/* ── Active nav link — box around current page ── */
+.nav-links a.active {
+  border: 1.5px solid var(--plum);
+  padding: 6px 14px;
+  border-radius: 6px;
+  color: var(--plum);
+  font-weight: 700;
+}
+/* ── Logo wrapper: keeps name on one line, pushes to far left ── */
+.nav-logo-brand {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--plum);
+  text-decoration: none;
+  white-space: nowrap;
+  margin-right: auto;
+}
+/* ── Stats strip — beige background ── */
+.stats {
+  background-color: var(--beige);
+  padding: 40px;
+  border-top: 2px dashed var(--plum);
+}
+
+/* ── Stats table — centres the three stats ── */
+.stats table {
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+/* ── Stat number — large and bold ── */
+.stat-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: var(--plum);
+  text-align: center;
+}
+
+/* ── Stat label — small uppercase text below number ── */
+.stat-lbl {
+  font-family: 'Lato', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: var(--text-mid);
+  text-align: center;
+  margin-top: 4px;
+}
+/* ── What we offer section — beige background ── */
+.pillars {
+  background-color: var(--beige);
+  padding: 60px 40px;
+}
+
+/* ── Pillars header — centred label and heading ── */
+.pillars-header {
+  text-align: center;
+  margin-bottom: 40px;
+  max-width: 1140px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ── Section label — small uppercase plum text ── */
+.section-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--plum);
+  margin-bottom: 8px;
+}
+
+/* ── Section heading ── */
+.pillars-header h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 10px;
+}
+
+/* ── Section subtext ── */
+.pillars-header p {
+  font-size: 0.95rem;
+  color: var(--text-mid);
+}
+
+/* ── Four card grid — side by side ── */
+.pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+/* ── Individual pillar card — blush pink background ── */
+.pillar-card {
+  background-color: var(--blush);
+  border: 1.5px solid var(--blush-deep, #e8b8bc);
+  border-radius: 12px;
+  padding: 24px;
+  transition: transform 0.2s;
+}
+
+/* ── Card lifts up when hovered ── */
+.pillar-card:hover {
+  transform: translateY(-4px);
+}
+
+/* ── Card image — fits inside card ── */
+.pillar-card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+
+/* ── Card heading — bold plum colour ── */
+.pillar-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--plum);
+  margin-bottom: 8px;
+}
+
+/* ── Card description ── */
+.pillar-card p {
+  font-size: 0.88rem;
+  color: var(--text-mid);
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+/* ── Card link ── */
+.pillar-link {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--plum);
+  text-decoration: none;
+}
+
+/* ── Card link when hovered ── */
+.pillar-link:hover {
+  text-decoration: underline;
+}
+
+/* ── Research card — dark plum background ── */
+.pillar-card-dark {
+  background-color: var(--plum-dark);
+  border-color: var(--plum);
+}
+
+/* ── Research card heading — white text ── */
+.pillar-card-dark h3 {
+  color: var(--white);
+}
+
+/* ── Research card description — light text ── */
+.pillar-card-dark p {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+/* ── Research card link — blush colour ── */
+.pillar-card-dark .pillar-link {
+  color: var(--blush);
+}
+/* ── Footer — dark plum background ── */
+.footer {
+  background-color: var(--plum-dark);
+  color: rgba(255, 255, 255, 0.75);
+  padding: 60px 40px 32px;
+}
+
+/* ── Footer inner — limits width and centres content ── */
+.footer-inner {
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+/* ── Footer top — four columns side by side ── */
+.footer-top {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 48px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 32px;
+}
+
+/* ── Footer brand name ── */
+.footer-brand-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  color: var(--white);
+  margin-bottom: 6px;
+}
+
+/* ── Footer brand tagline ── */
+.footer-brand-tag {
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--blush);
+  margin-bottom: 14px;
+}
+
+/* ── Footer brand description ── */
+.footer-brand p {
+  font-size: 0.85rem;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+/* ── Footer column heading ── */
+.footer-col h4 {
+  font-family: 'Lato', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--white);
+  margin-bottom: 16px;
+}
+
+/* ── Footer column links list ── */
+.footer-col ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* ── Footer link ── */
+.footer-col ul a {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.65);
+  text-decoration: none;
+}
+
+/* ── Footer link when hovered ── */
+.footer-col ul a:hover {
+  color: var(--blush);
+}
+
+/* ── Footer bottom — copyright and social links ── */
+.footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+/* ── Copyright text ── */
+.footer-bottom p {
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* ── Social links row ── */
+.footer-social {
+  display: flex;
+  gap: 16px;
+}
+
+/* ── Individual social link ── */
+.footer-social a {
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.5);
+  text-decoration: none;
+}
+
+/* ── Social link when hovered ── */
+.footer-social a:hover {
+  color: var(--blush);
+}
