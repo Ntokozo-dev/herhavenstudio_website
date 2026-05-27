@@ -518,3 +518,39 @@ nav {
 .footer-social a:hover {
   color: var(--blush);
 }
+/* ── Page hero — beige background, centred text ── */
+.page-hero {
+  background-color: var(--beige);
+  padding: 60px 40px;
+  text-align: center;
+  border-bottom: 1px solid var(--border);
+  max-width: 100%;
+}
+
+/* ── Page hero inner — limits width ── */
+.page-hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 12px;
+}
+
+/* ── Page hero subtext ── */
+.page-hero p {
+  font-size: 0.95rem;
+  color: var(--text-mid);
+  max-width: 600px;
+  margin: 0 auto 24px;
+  line-height: 1.8;
+}
+
+/* ── Page hero image — full width, fixed height ── */
+.page-hero img {
+  width: 100%;
+  max-width: 800px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-top: 24px;
+}
