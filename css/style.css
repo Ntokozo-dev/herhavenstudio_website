@@ -554,3 +554,165 @@ nav {
   border-radius: 12px;
   margin-top: 24px;
 }
+/* ── Page hero — beige background with padding ── */
+.page-hero {
+  background-color: var(--beige);
+  padding: 40px 40px 20px;
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+/* ── Page hero heading — plum colour ── */
+.page-hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--plum);
+  margin-bottom: 8px;
+}
+
+/* ── Page hero subtext ── */
+.page-hero p {
+  font-size: 0.92rem;
+  color: var(--text-mid);
+  margin-bottom: 16px;
+}
+
+/* ── Page hero image — full width, fixed height ── */
+.page-hero img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-top: 16px;
+}
+
+/* ── Classes section wrapper ── */
+.classes-section {
+  background-color: var(--beige);
+  padding: 20px 40px 60px;
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+/* ── Filter pills row ── */
+.filter-row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 32px;
+}
+
+/* ── Individual filter pill ── */
+.filter-pill {
+  padding: 8px 20px;
+  border-radius: 40px;
+  border: 1.5px solid var(--plum);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--plum);
+  cursor: pointer;
+  background-color: var(--white);
+}
+
+/* ── Active filter pill — filled plum ── */
+.filter-pill.active {
+  background-color: var(--plum);
+  color: var(--white);
+}
+
+/* ── Cards grid — three per row ── */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+/* ── Individual class card ── */
+.class-card {
+  background-color: var(--plum-light);
+  border: 1.5px solid var(--plum);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* ── Card image area ── */
+.card-img {
+  position: relative;
+  width: 100%;
+  height: 180px;
+  background-color: var(--plum-light);
+  overflow: hidden;
+}
+
+/* ── Card image ── */
+.card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ── Card body — padding around text ── */
+.card-body {
+  padding: 16px;
+}
+
+/* ── Card heading ── */
+.card-body h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 6px;
+}
+
+/* ── Card subcategory label ── */
+.card-sub-label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--plum);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 8px;
+}
+
+/* ── Card subcategory list ── */
+.card-body ul {
+  list-style: none;
+  margin-bottom: 16px;
+}
+
+/* ── Individual subcategory item ── */
+.card-body ul li {
+  font-size: 0.85rem;
+  color: var(--text-mid);
+  padding: 3px 0;
+}
+
+/* ── Book button — sits at bottom right of card ── */
+.card-btn {
+  display: block;
+  text-align: right;
+  background-color: var(--plum);
+  color: var(--white);
+  padding: 8px 20px;
+  border-radius: 40px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-decoration: none;
+  width: fit-content;
+  margin-left: auto;
+}
+
+/* ── Book button when hovered ── */
+.card-btn:hover {
+  background-color: var(--plum-dark);
+}
+
+/* ── Tag colour variants ── */
+.tag-plum  { background-color: var(--plum-light); color: var(--plum-dark); }
+.tag-pink  { background-color: var(--blush); color: #72243E; }
+.tag-teal  { background-color: #D5F0E8; color: #085041; }
+.tag-amber { background-color: #FAE8C0; color: #7A4A00; }
+.tag-blue  { background-color: #D5E8F5; color: #0A3D6B; }
+.tag-green { background-color: #DCF0D5; color: #1A5C0A; }
