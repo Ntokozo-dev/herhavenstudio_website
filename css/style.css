@@ -1079,118 +1079,132 @@ nav {
   border-top: 2px dashed var(--plum);
   margin: 48px 0;
 }
-
-/* ── Events list grid ── */
+/* ── Events list container ── */
 .events-list {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
   margin-bottom: 48px;
 }
 
-/* ── Event card ── */
+/* ── Individual event bar ── */
 .event-card {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
   background-color: var(--white);
   border: 1px solid var(--border);
   border-radius: 12px;
-  overflow: hidden;
+
+  padding: 16px 24px;
   transition: transform 0.2s;
-  display: flex;
-  flex-direction: column;
 }
 
-/* ── Event card hover ── */
+/* ── Event card hover effect ── */
 .event-card:hover {
   transform: translateY(-4px);
 }
 
+/* ── Event image ── */
+.event-card img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 10px;
+  flex-shrink: 0;
+}
+
 /* ── Event date badge ── */
 .event-date {
-  position: relative;
-  height: 200px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  color: var(--white);
-  overflow: hidden;
+  min-width: 70px;
+  text-align: center;
 }
 
-/* ── Event date variants ── */
-.date-plum  { background-color: var(--plum); }
-.date-pink  { background-color: var(--blush); color: #72243E; }
-.date-teal  { background-color: #D5F0E8; color: #085041; }
-
-/* ── Event date image ── */
-.event-date img {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 0.8;
+/* ── Date badge colour variants ── */
+.date-plum {
+  color: var(--plum);
 }
 
-/* ── Event date number ── */
+.date-pink {
+  color: #72243E;
+}
+
+.date-teal {
+  color: #085041;
+}
+
+/* ── Day number ── */
 .date-num {
+  display: block;
   font-family: 'Playfair Display', serif;
-  font-size: 2.4rem;
+  font-size: 2rem;
   font-weight: 700;
-  position: relative;
-  z-index: 2;
+  line-height: 1;
 }
 
-/* ── Event date month ── */
+/* ── Month text ── */
 .date-month {
+  display: block;
   font-size: 0.85rem;
   font-weight: 700;
   text-transform: uppercase;
-  position: relative;
-  z-index: 2;
+  margin-top: 4px;
 }
 
-/* ── Event content ── */
+/* ── Event content area ── */
 .event-content {
-  padding: 20px;
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
+  flex: 1;
 }
 
-/* ── Event content heading ── */
+/* ── Event title ── */
 .event-content h3 {
   font-family: 'Playfair Display', serif;
   font-size: 1rem;
   font-weight: 700;
   color: var(--text);
-  margin-bottom: 8px;
+  margin-bottom: 6px;
 }
 
-/* ── Event content description ── */
+/* ── Event details ── */
 .event-content p {
   font-size: 0.85rem;
   color: var(--text-mid);
-  margin-bottom: 16px;
-  flex-grow: 1;
+  margin: 0;
 }
 
 /* ── RSVP button ── */
 .btn-rsvp {
-  display: inline-block;
+  margin-left: auto;
+
   background-color: var(--plum);
   color: var(--white);
-  padding: 8px 24px;
+
+  padding: 10px 24px;
   border-radius: 40px;
+
+  text-decoration: none;
   font-size: 0.82rem;
   font-weight: 700;
-  text-decoration: none;
-  text-align: center;
-  margin-top: auto;
+
   transition: background-color 0.2s;
 }
 
 /* ── RSVP button hover ── */
 .btn-rsvp:hover {
   background-color: var(--plum-dark);
+}
+
+/* ── Mobile layout ── */
+@media (max-width: 768px) {
+  .event-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .btn-rsvp {
+    margin-left: 0;
+  }
 }
 
 /* ── Enquiries section ── */
