@@ -33,53 +33,12 @@ a {
   text-decoration: none;
   color: inherit;
 }
-/* ── Navigation bar ── */
-nav {
-  background-color: var(--beige);
-  padding: 16px 40px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border-bottom: 1px solid var(--border);
-  position: sticky;
-  top: 0;
-}
 
-/* ── Navigation links list ── */
-.nav-links {
-  display: flex;
-  list-style: none;
-  gap: 32px;
-}
+/* ========================================================================
+   NAVIGATION & HEADER
+   ======================================================================== */
 
-/* ── Individual navigation link ── */
-.nav-links a {
-  font-family: 'Lato', sans-serif;
-  font-size: 0.88rem;
-  color: var(--text-mid);
-  text-decoration: none;
-}
-
-/* ── Navigation link when hovered ── */
-.nav-links a:hover {
-  color: var(--plum);
-}
-
-/* ── Join now button ── */
-.btn-join {
-  background-color: var(--plum);
-  color: var(--white);
-  padding: 10px 24px;
-  border-radius: 40px;
-  font-size: 0.85rem;
-  font-weight: 700;
-}
-
-/* ── Join now button when hovered ── */
-.btn-join:hover {
-  background-color: var(--plum-dark);
-}
-/* ── Navigation bar — beige background, full width ── */
+/* ── Navigation bar — sticky positioning at top ── */
 nav {
   background-color: var(--beige);
   border-bottom: 1px solid var(--border);
@@ -119,6 +78,15 @@ nav {
   color: var(--plum);
 }
 
+/* ── Active nav link — box around current page ── */
+.nav-links a.active {
+  border: 1.5px solid var(--plum);
+  padding: 6px 14px;
+  border-radius: 6px;
+  color: var(--plum);
+  font-weight: 700;
+}
+
 /* ── Join now button ── */
 .btn-join {
   background-color: var(--plum);
@@ -127,12 +95,45 @@ nav {
   border-radius: 40px;
   font-size: 0.85rem;
   font-weight: 700;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.2s;
 }
 
 /* ── Join now button when hovered ── */
 .btn-join:hover {
   background-color: var(--plum-dark);
 }
+
+/* ── Logo wrapper: keeps name on one line, pushes to far left ── */
+.nav-logo-brand {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--plum);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+/* ── Navigation logo — wraps the brand text ── */
+.nav-logo {
+  text-decoration: none;
+  color: var(--plum);
+}
+
+/* ── Brand text — multiline logo text ── */
+.brand-text {
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.2;
+  display: block;
+}
+
+/* ========================================================================
+   HERO SECTION
+   ======================================================================== */
+
 /* ── Hero section — light purple background with dark purple border ── */
 .hero {
   background-color: #F0E6FA;
@@ -191,6 +192,7 @@ nav {
   display: flex;
   gap: 16px;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
 /* ── Get started button — deep plum fill ── */
@@ -202,6 +204,10 @@ nav {
   font-size: 0.9rem;
   font-weight: 700;
   text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.2s;
 }
 
 /* ── Get started button when hovered ── */
@@ -219,42 +225,20 @@ nav {
   font-size: 0.9rem;
   font-weight: 700;
   text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+  transition: background-color 0.2s;
 }
 
 /* ── Learn more button when hovered ── */
 .btn-outline-white:hover {
   background-color: var(--plum-light);
 }
-/* ── Logo wrapper: keeps name on one line, pushes to far left ── */
-.nav-logo-brand {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: var(--plum);
-  text-decoration: none;
-  white-space: nowrap;
-  margin-right: auto;
-}
 
+/* ========================================================================
+   STATS SECTION
+   ======================================================================== */
 
-/* ── Active nav link — box around current page ── */
-.nav-links a.active {
-  border: 1.5px solid var(--plum);
-  padding: 6px 14px;
-  border-radius: 6px;
-  color: var(--plum);
-  font-weight: 700;
-}
-/* ── Logo wrapper: keeps name on one line, pushes to far left ── */
-.nav-logo-brand {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: var(--plum);
-  text-decoration: none;
-  white-space: nowrap;
-  margin-right: auto;
-}
 /* ── Stats strip — beige background ── */
 .stats {
   background-color: var(--beige);
@@ -286,6 +270,11 @@ nav {
   text-align: center;
   margin-top: 4px;
 }
+
+/* ========================================================================
+   WHAT WE OFFER / PILLARS SECTION
+   ======================================================================== */
+
 /* ── What we offer section — beige background ── */
 .pillars {
   background-color: var(--beige);
@@ -338,7 +327,7 @@ nav {
 /* ── Individual pillar card — blush pink background ── */
 .pillar-card {
   background-color: var(--blush);
-  border: 1.5px solid var(--blush-deep, #e8b8bc);
+  border: 1.5px solid var(--blush);
   border-radius: 12px;
   padding: 24px;
   transition: transform 0.2s;
@@ -408,6 +397,1825 @@ nav {
 .pillar-card-dark .pillar-link {
   color: var(--blush);
 }
+
+/* ========================================================================
+   PAGE HERO SECTION
+   ======================================================================== */
+
+/* ── Page hero — beige background with padding ── */
+.page-hero {
+  background-color: var(--beige);
+  padding: 40px 40px 20px;
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+/* ── Page hero heading — plum colour ── */
+.page-hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--plum);
+  margin-bottom: 8px;
+}
+
+/* ── Page hero subtext ── */
+.page-hero p {
+  font-size: 0.92rem;
+  color: var(--text-mid);
+  margin-bottom: 16px;
+}
+
+/* ── Page hero image — full width, fixed height ── */
+.page-hero img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-top: 16px;
+}
+
+/* ========================================================================
+   CLASSES SECTION
+   ======================================================================== */
+
+/* ── Classes section wrapper ── */
+.classes-section {
+  background-color: var(--beige);
+  padding: 20px 40px 60px;
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+/* ── Filter pills row ── */
+.filter-row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 32px;
+}
+
+/* ── Individual filter pill ── */
+.filter-pill {
+  padding: 8px 20px;
+  border-radius: 40px;
+  border: 1.5px solid var(--plum);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--plum);
+  cursor: pointer;
+  background-color: var(--white);
+  transition: all 0.2s;
+}
+
+/* ── Individual filter pill when hovered ── */
+.filter-pill:hover {
+  background-color: var(--plum-light);
+}
+
+/* ── Active filter pill — filled plum ── */
+.filter-pill.active {
+  background-color: var(--plum);
+  color: var(--white);
+}
+
+/* ── Cards grid — three per row ── */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+/* ── Individual class card ── */
+.class-card {
+  background-color: var(--plum-light);
+  border: 1.5px solid var(--plum);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.2s;
+}
+
+/* ── Card lift on hover ── */
+.class-card:hover {
+  transform: translateY(-4px);
+}
+
+/* ── Card image area ── */
+.card-img {
+  position: relative;
+  width: 100%;
+  height: 180px;
+  background-color: var(--plum-light);
+  overflow: hidden;
+}
+
+/* ── Card image ── */
+.card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ── Card tag — positioned on image ── */
+.card-tag {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+/* ── Card body — padding around text ── */
+.card-body {
+  padding: 16px;
+}
+
+/* ── Card heading ── */
+.card-body h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 6px;
+}
+
+/* ── Card subcategory label ── */
+.card-sub-label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--plum);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 8px;
+}
+
+/* ── Card subcategory list ── */
+.card-body ul {
+  list-style: none;
+  margin-bottom: 16px;
+}
+
+/* ── Individual subcategory item ── */
+.card-body ul li {
+  font-size: 0.85rem;
+  color: var(--text-mid);
+  padding: 3px 0;
+}
+
+/* ── Book button — sits at bottom right of card ── */
+.card-btn {
+  display: inline-block;
+  background-color: var(--plum);
+  color: var(--white);
+  padding: 8px 20px;
+  border-radius: 40px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-decoration: none;
+  margin-left: auto;
+  transition: background-color 0.2s;
+  cursor: pointer;
+}
+
+/* ── Book button when hovered ── */
+.card-btn:hover {
+  background-color: var(--plum-dark);
+}
+
+/* ── Tag colour variants ── */
+.tag-plum  { background-color: var(--plum-light); color: var(--plum-dark); }
+.tag-pink  { background-color: var(--blush); color: #72243E; }
+.tag-teal  { background-color: #D5F0E8; color: #085041; }
+.tag-amber { background-color: #FAE8C0; color: #7A4A00; }
+.tag-blue  { background-color: #D5E8F5; color: #0A3D6B; }
+.tag-green { background-color: #DCF0D5; color: #1A5C0A; }
+
+/* ========================================================================
+   LOGIN PAGE
+   ======================================================================== */
+
+/* ── Login header — simplified header without sticky nav ── */
+.login-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 40px;
+  background-color: var(--beige);
+  border-bottom: 1px solid var(--border);
+}
+
+/* ── Login header nav — horizontal links ── */
+.login-header nav {
+  display: flex;
+  gap: 24px;
+  background: none;
+  border: none;
+  padding: 0;
+  position: static;
+}
+
+/* ── Login header nav links ── */
+.login-header nav a {
+  font-size: 0.85rem;
+  color: var(--text-mid);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+/* ── Login header nav links on hover ── */
+.login-header nav a:hover {
+  color: var(--plum);
+}
+
+/* ── Login header last link is button style ── */
+.login-header nav a:last-child {
+  background-color: var(--plum);
+  color: var(--white);
+  padding: 8px 20px;
+  border-radius: 40px;
+  font-weight: 700;
+}
+
+/* ── Login header button hover ── */
+.login-header nav a:last-child:hover {
+  background-color: var(--plum-dark);
+}
+
+/* ── Login page — centered form container ── */
+.login-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 300px);
+  padding: 40px 20px;
+  background-color: var(--beige);
+}
+
+/* ── Login card — white form container ── */
+.login-card {
+  background-color: var(--white);
+  border: 1.5px solid var(--border);
+  border-radius: 12px;
+  padding: 48px 40px;
+  max-width: 400px;
+  width: 100%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* ── Login heading ── */
+.login-card h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 4px;
+  text-align: center;
+}
+
+/* ── Login subtext ── */
+.login-sub {
+  font-size: 0.9rem;
+  color: var(--text-mid);
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+/* ── Form group — input wrapper with label ── */
+.form-group {
+  margin-bottom: 20px;
+}
+
+/* ── Form label ── */
+.form-group label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+
+/* ── Form input ── */
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-family: 'Lato', sans-serif;
+  font-size: 0.95rem;
+  color: var(--text);
+  background-color: var(--white);
+  transition: border-color 0.2s;
+}
+
+/* ── Form input on focus ── */
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: var(--plum);
+  box-shadow: 0 0 0 3px rgba(92, 45, 94, 0.1);
+}
+
+/* ── Forgot password link ── */
+.forgot-link {
+  display: block;
+  text-align: right;
+  margin-top: 6px;
+  font-size: 0.85rem;
+  color: var(--plum);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+/* ── Forgot password link hover ── */
+.forgot-link:hover {
+  text-decoration: underline;
+}
+
+/* ── Login button — full width ── */
+.btn-login {
+  display: block;
+  width: 100%;
+  background-color: var(--plum);
+  color: var(--white);
+  padding: 14px;
+  border-radius: 40px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+  margin-top: 24px;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.2s;
+}
+
+/* ── Login button hover ── */
+.btn-login:hover {
+  background-color: var(--plum-dark);
+}
+
+/* ── Divider with "or" text ── */
+.divider {
+  display: flex;
+  align-items: center;
+  margin: 24px 0;
+  color: var(--text-mid);
+  font-size: 0.9rem;
+}
+
+/* ── Divider line ── */
+.divider::before,
+.divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background-color: var(--border);
+}
+
+/* ── Divider text ── */
+.divider span {
+  padding: 0 12px;
+}
+
+/* ── Google login button ── */
+.btn-google {
+  display: block;
+  width: 100%;
+  background-color: var(--plum-light);
+  color: var(--plum);
+  padding: 14px;
+  border-radius: 40px;
+  border: 1.5px solid var(--plum);
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+/* ── Google button hover ── */
+.btn-google:hover {
+  background-color: var(--white);
+  border-color: var(--plum-dark);
+}
+
+/* ── Login footer — sign up link ── */
+.login-footer {
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--text-mid);
+  margin-top: 24px;
+}
+
+/* ── Login footer link ── */
+.login-footer a {
+  color: var(--plum);
+  font-weight: 700;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+/* ── Login footer link hover ── */
+.login-footer a:hover {
+  text-decoration: underline;
+}
+
+/* ========================================================================
+   WELLNESS SECTION (Articles)
+   ======================================================================== */
+
+/* ── Wellness section wrapper ── */
+.wellness-section {
+  background-color: var(--beige);
+  padding: 40px;
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+/* ── Featured article section ── */
+.featured-article {
+  background-color: var(--white);
+  border: 1.5px solid var(--plum);
+  border-radius: 12px;
+  padding: 40px;
+  margin-bottom: 48px;
+}
+
+/* ── Featured label ── */
+.featured-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--plum);
+  margin-bottom: 8px;
+}
+
+/* ── Featured article heading ── */
+.featured-article h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 24px;
+  line-height: 1.3;
+}
+
+/* ── Featured article image ── */
+.featured-article img {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+
+/* ── Featured article description ── */
+.featured-article p {
+  font-size: 0.95rem;
+  color: var(--text-mid);
+  line-height: 1.8;
+  margin-bottom: 24px;
+}
+
+/* ── Featured text section ── */
+.featured-text {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Read more link ── */
+.read-more {
+  display: inline-block;
+  color: var(--plum);
+  font-weight: 700;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: text-decoration 0.2s;
+}
+
+/* ── Read more link hover ── */
+.read-more:hover {
+  text-decoration: underline;
+}
+
+/* ── Articles heading ── */
+.articles-heading {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--text);
+  margin: 48px 0 24px;
+}
+
+/* ── Articles list grid ── */
+.articles-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+/* ── Article card ── */
+.article-card {
+  background-color: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.2s;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Article card hover ── */
+.article-card:hover {
+  transform: translateY(-4px);
+}
+
+/* ── Article card image ── */
+.article-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+/* ── Article card content ── */
+.article-content {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+/* ── Article card heading ── */
+.article-content h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 12px;
+  line-height: 1.4;
+}
+
+/* ── Article card description ── */
+.article-content p {
+  font-size: 0.85rem;
+  color: var(--text-mid);
+  line-height: 1.6;
+  margin-bottom: 16px;
+  flex-grow: 1;
+}
+
+/* ── Article meta information ── */
+.article-meta {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  font-size: 0.78rem;
+  color: var(--text-mid);
+  margin-top: auto;
+}
+
+/* ── Article tag ── */
+.article-tag {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+/* ========================================================================
+   COMMUNITY SECTION
+   ======================================================================== */
+
+/* ── Community section wrapper ── */
+.community-section {
+  background-color: var(--beige);
+  padding: 40px;
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+/* ── Testimonials grid ── */
+.testimonials-grid {
+  margin-bottom: 48px;
+}
+
+/* ── Testimonial card ── */
+.testimonial-card {
+  background-color: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 24px;
+  transition: transform 0.2s;
+}
+
+/* ── Testimonial card hover ── */
+.testimonial-card:hover {
+  transform: translateY(-2px);
+}
+
+/* ── Testimonial quote ── */
+.testimonial-quote {
+  font-size: 0.95rem;
+  font-style: italic;
+  color: var(--text);
+  margin-bottom: 16px;
+  line-height: 1.8;
+}
+
+/* ── Testimonial author section ── */
+.testimonial-author {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+/* ── Testimonial avatar ── */
+.testimonial-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  color: var(--white);
+  font-size: 0.9rem;
+}
+
+/* ── Avatar colour variants ── */
+.av-pink  { background-color: var(--blush); color: #72243E; }
+.av-teal  { background-color: #D5F0E8; color: #085041; }
+.av-plum  { background-color: var(--plum); }
+.av-amber { background-color: #FAE8C0; color: #7A4A00; }
+
+/* ── Testimonial author info ── */
+.testimonial-author-info strong {
+  display: block;
+  color: var(--text);
+  font-size: 0.9rem;
+}
+
+/* ── Testimonial author role ── */
+.testimonial-author-info span {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--text-mid);
+}
+
+/* ── Section divider ── */
+.section-divider {
+  border: none;
+  border-top: 2px dashed var(--plum);
+  margin: 48px 0;
+}
+
+/* ── Events list grid ── */
+.events-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin-bottom: 48px;
+}
+
+/* ── Event card ── */
+.event-card {
+  background-color: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.2s;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Event card hover ── */
+.event-card:hover {
+  transform: translateY(-4px);
+}
+
+/* ── Event date badge ── */
+.event-date {
+  position: relative;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  overflow: hidden;
+}
+
+/* ── Event date variants ── */
+.date-plum  { background-color: var(--plum); }
+.date-pink  { background-color: var(--blush); color: #72243E; }
+.date-teal  { background-color: #D5F0E8; color: #085041; }
+
+/* ── Event date image ── */
+.event-date img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.8;
+}
+
+/* ── Event date number ── */
+.date-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.4rem;
+  font-weight: 700;
+  position: relative;
+  z-index: 2;
+}
+
+/* ── Event date month ── */
+.date-month {
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  position: relative;
+  z-index: 2;
+}
+
+/* ── Event content ── */
+.event-content {
+  padding: 20px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Event content heading ── */
+.event-content h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+
+/* ── Event content description ── */
+.event-content p {
+  font-size: 0.85rem;
+  color: var(--text-mid);
+  margin-bottom: 16px;
+  flex-grow: 1;
+}
+
+/* ── RSVP button ── */
+.btn-rsvp {
+  display: inline-block;
+  background-color: var(--plum);
+  color: var(--white);
+  padding: 8px 24px;
+  border-radius: 40px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-decoration: none;
+  text-align: center;
+  margin-top: auto;
+  transition: background-color 0.2s;
+}
+
+/* ── RSVP button hover ── */
+.btn-rsvp:hover {
+  background-color: var(--plum-dark);
+}
+
+/* ── Enquiries section ── */
+.enquiries-section {
+  background-color: var(--white);
+  padding: 60px 40px;
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+/* ── Enquiries inner ── */
+.enquiries-inner {
+  text-align: center;
+}
+
+/* ── Enquiries heading ── */
+.enquiries-section h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 16px;
+}
+
+/* ── Enquiries image ── */
+.enquiries-section img {
+  max-width: 300px;
+  height: auto;
+  margin-bottom: 16px;
+}
+
+/* ── Sub text (smaller description) ── */
+.sub {
+  font-size: 0.95rem;
+  color: var(--text-mid);
+  margin-bottom: 24px;
+}
+
+/* ── Enquiry form ── */
+.enquiry-form {
+  background-color: var(--beige);
+  padding: 40px;
+  border-radius: 12px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+/* ── Send message button ── */
+.btn-send {
+  display: inline-block;
+  background-color: var(--plum);
+  color: var(--white);
+  padding: 12px 32px;
+  border-radius: 40px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-decoration: none;
+  text-align: center;
+  margin-top: 12px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+/* ── Send message button hover ── */
+.btn-send:hover {
+  background-color: var(--plum-dark);
+}
+
+/* ========================================================================
+   ABOUT PAGE
+   ======================================================================== */
+
+/* ── About page wrapper ── */
+.about-page {
+  background-color: var(--white);
+}
+
+/* ── Tagline hero section ── */
+.tagline-hero {
+  background-color: var(--beige);
+  padding: 60px 40px;
+  text-align: center;
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+/* ── Tagline hero heading ── */
+.tagline-hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: var(--plum);
+  margin-bottom: 24px;
+}
+
+/* ── Tagline hero image ── */
+.tagline-hero img {
+  max-width: 400px;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+
+/* ── About section ── */
+.about-section {
+  padding: 60px 40px;
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+/* ── About section heading ── */
+.about-section h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 24px;
+}
+
+/* ── About text block ── */
+.about-text {
+  margin-bottom: 48px;
+}
+
+/* ── About paragraph ── */
+.about-text p {
+  font-size: 0.95rem;
+  color: var(--text-mid);
+  line-height: 1.8;
+  margin-bottom: 16px;
+}
+
+/* ── Statements grid — mission and vision ── */
+.statements-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin-bottom: 48px;
+}
+
+/* ── Statement card ── */
+.statement-card {
+  background-color: var(--beige);
+  padding: 32px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+}
+
+/* ── Statement card heading ── */
+.statement-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--plum);
+  margin-bottom: 12px;
+}
+
+/* ── Statement card text ── */
+.statement-card p {
+  font-size: 0.9rem;
+  color: var(--text-mid);
+  line-height: 1.8;
+}
+
+/* ── Values section ── */
+.values-section {
+  background-color: var(--beige);
+  padding: 60px 40px;
+}
+
+/* ── Values section heading ── */
+.values-section h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text);
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+/* ── Values grid ── */
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+/* ── Value card ── */
+.value-card {
+  background-color: var(--white);
+  padding: 32px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  text-align: center;
+  transition: transform 0.2s;
+}
+
+/* ── Value card hover ── */
+.value-card:hover {
+  transform: translateY(-4px);
+}
+
+/* ── Value icon ── */
+.value-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin: 0 auto 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+}
+
+/* ── Value card heading ── */
+.value-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--plum);
+}
+
+/* ========================================================================
+   BOOKING PAGE
+   ======================================================================== */
+
+/* ── Booking page main section ── */
+.booking-page {
+  background-color: var(--beige);
+  padding: 40px;
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+/* ── Booking page heading ── */
+.booking-page h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--plum);
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+/* ── Booking subtext ── */
+.booking-sub {
+  text-align: center;
+  color: var(--text-mid);
+  margin-bottom: 32px;
+}
+
+/* ── Type pills — Classes, 1-on-1, Consultations ── */
+.type-pills {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-bottom: 48px;
+}
+
+/* ── Individual type pill ── */
+.type-pill {
+  padding: 10px 24px;
+  border-radius: 40px;
+  border: 1.5px solid var(--plum);
+  background-color: var(--white);
+  color: var(--plum);
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+/* ── Type pill hover ── */
+.type-pill:hover {
+  background-color: var(--plum-light);
+}
+
+/* ── Active type pill ── */
+.type-pill.active {
+  background-color: var(--plum);
+  color: var(--white);
+}
+
+/* ── Booking layout — two columns ── */
+.booking-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+/* ── Steps column ── */
+.steps-col {
+  background-color: var(--white);
+  padding: 32px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+}
+
+/* ── Steps column heading ── */
+.steps-col h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 24px;
+}
+
+/* ── Steps list ── */
+.steps-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* ── Individual step ── */
+.step {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+/* ── Step number circle ── */
+.step-num {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+/* ── Active step number ── */
+.active-step {
+  background-color: var(--plum);
+  color: var(--white);
+}
+
+/* ── Inactive step number ── */
+.inactive-step {
+  background-color: var(--border);
+  color: var(--text-mid);
+}
+
+/* ── Step text ── */
+.step-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+/* ── Step text strong ── */
+.step-text strong {
+  color: var(--text);
+  font-size: 0.95rem;
+}
+
+/* ── Step text span ── */
+.step-text span {
+  font-size: 0.85rem;
+  color: var(--text-mid);
+}
+
+/* ── Form column ── */
+.form-col {
+  background-color: var(--white);
+  padding: 32px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+}
+
+/* ── Form column heading ── */
+.form-col h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 24px;
+}
+
+/* ── Form row — two columns side by side ── */
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+/* ── Confirm booking button ── */
+.btn-confirm {
+  display: block;
+  width: 100%;
+  background-color: var(--plum);
+  color: var(--white);
+  padding: 14px;
+  border-radius: 40px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+  margin-top: 24px;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.2s;
+}
+
+/* ── Confirm booking button hover ── */
+.btn-confirm:hover {
+  background-color: var(--plum-dark);
+}
+
+/* ========================================================================
+   CONTRIBUTE PAGE
+   ======================================================================== */
+
+/* ── Page header ── */
+.page-header {
+  background-color: var(--beige);
+  padding: 60px 40px;
+  text-align: center;
+}
+
+/* ── Page header heading ── */
+.page-header h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--plum);
+}
+
+/* ── Contribution section ── */
+.contribution-section {
+  background-color: var(--white);
+  padding: 60px 40px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* ── Form card ── */
+.form-card {
+  background-color: var(--beige);
+  padding: 40px;
+  border-radius: 12px;
+}
+
+/* ── Form section ── */
+.form-section {
+  margin-bottom: 32px;
+}
+
+/* ── Form section heading ── */
+.form-section h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 20px;
+}
+
+/* ── Form row with three columns ── */
+.form-row-three {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+/* ── Form row with two columns ── */
+.form-row-two {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+/* ── Form checkboxes group ── */
+.form-checkboxes {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* ── Checkbox group ── */
+.checkbox-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ── Checkbox input ── */
+.checkbox-group input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  accent-color: var(--plum);
+}
+
+/* ── Checkbox label ── */
+.checkbox-group label {
+  font-size: 0.9rem;
+  color: var(--text-mid);
+  cursor: pointer;
+  margin: 0;
+}
+
+/* ── Form footer ── */
+.form-footer {
+  text-align: center;
+  margin-top: 32px;
+}
+
+/* ── Submit button ── */
+.btn-submit {
+  background-color: var(--plum);
+  color: var(--white);
+  padding: 14px 40px;
+  border-radius: 40px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+/* ── Submit button hover ── */
+.btn-submit:hover {
+  background-color: var(--plum-dark);
+}
+
+/* ── Submission info ── */
+.submission-info {
+  font-size: 0.85rem;
+  color: var(--text-mid);
+  margin-top: 12px;
+}
+
+/* ========================================================================
+   REGISTER PAGE
+   ======================================================================== */
+
+/* ── Register page — centered form container ── */
+.register-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 300px);
+  padding: 40px 20px;
+  background-color: var(--beige);
+}
+
+/* ── Register card — white form container ── */
+.register-card {
+  background-color: var(--white);
+  border: 1.5px solid var(--border);
+  border-radius: 12px;
+  padding: 48px 40px;
+  max-width: 450px;
+  width: 100%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* ── Register heading ── */
+.register-card h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 4px;
+  text-align: center;
+}
+
+/* ── Register subtext ── */
+.register-sub {
+  font-size: 0.9rem;
+  color: var(--text-mid);
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+/* ── Form check — checkbox with label ── */
+.form-check {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin-bottom: 24px;
+  margin-top: 16px;
+}
+
+/* ── Form check input ── */
+.form-check input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  margin-top: 2px;
+  cursor: pointer;
+  accent-color: var(--plum);
+  flex-shrink: 0;
+}
+
+/* ── Form check label ── */
+.form-check label {
+  font-size: 0.85rem;
+  color: var(--text-mid);
+  cursor: pointer;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* ── Form check label links ── */
+.form-check label a {
+  color: var(--plum);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s;
+}
+
+/* ── Form check label links hover ── */
+.form-check label a:hover {
+  text-decoration: underline;
+}
+
+/* ── Register button — full width ── */
+.btn-register {
+  display: block;
+  width: 100%;
+  background-color: var(--plum);
+  color: var(--white);
+  padding: 14px;
+  border-radius: 40px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.2s;
+}
+
+/* ── Register button hover ── */
+.btn-register:hover {
+  background-color: var(--plum-dark);
+}
+
+/* ── Register footer — log in link ── */
+.register-footer {
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--text-mid);
+  margin-top: 24px;
+}
+
+/* ── Register footer link ── */
+.register-footer a {
+  color: var(--plum);
+  font-weight: 700;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+/* ── Register footer link hover ── */
+.register-footer a:hover {
+  text-decoration: underline;
+}
+
+/* ── Collaborate button — in header ── */
+.btn-collaborate {
+  background-color: var(--plum);
+  color: var(--white);
+  padding: 10px 24px;
+  border-radius: 40px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  border: none;
+  text-decoration: none;
+  display: inline-block;
+  transition: background-color 0.2s;
+}
+
+/* ── Collaborate button hover ── */
+.btn-collaborate:hover {
+  background-color: var(--plum-dark);
+}
+
+/* ========================================================================
+   RESEARCH PAGE
+   ======================================================================== */
+
+/* ── Research section wrapper ── */
+.research-section {
+  background-color: var(--beige);
+  padding: 60px 40px;
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+/* ── Research focus areas subsection ── */
+.research-focus {
+  margin-bottom: 80px;
+}
+
+/* ── Research focus heading ── */
+.research-focus h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+
+/* ── Focus subtitle ── */
+.focus-subtitle {
+  font-size: 0.95rem;
+  color: var(--text-mid);
+  margin-bottom: 32px;
+}
+
+/* ── Focus areas grid — three columns ── */
+.focus-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+/* ── Focus area card ── */
+.focus-card {
+  background-color: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+  transition: transform 0.2s;
+  position: relative;
+}
+
+/* ── Focus card hover ── */
+.focus-card:hover {
+  transform: translateY(-4px);
+}
+
+/* ── Focus card heading ── */
+.focus-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 12px;
+}
+
+/* ── Focus card image ── */
+.focus-card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 12px;
+}
+
+/* ── Focus card description ── */
+.focus-card p {
+  font-size: 0.85rem;
+  color: var(--text-mid);
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+/* ── Focus badge — status label ── */
+.focus-badge {
+  display: inline-block;
+  background-color: var(--plum);
+  color: var(--white);
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+/* ── New badge variant ── */
+.badge-new {
+  background-color: var(--blush);
+  color: #72243E;
+}
+
+/* ── Featured research subsection ── */
+.featured-research {
+  margin-bottom: 80px;
+}
+
+/* ── Featured research heading ── */
+.featured-research h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+
+/* ── Featured subtitle ── */
+.featured-subtitle {
+  font-size: 0.95rem;
+  color: var(--text-mid);
+  margin-bottom: 32px;
+}
+
+/* ── Research articles container ── */
+.research-articles {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* ── Research card — article item ── */
+.research-card {
+  background-color: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+  display: flex;
+  gap: 20px;
+  transition: transform 0.2s;
+}
+
+/* ── Research card hover ── */
+.research-card:hover {
+  transform: translateY(-2px);
+}
+
+/* ── Article avatar — colored circle ── */
+.article-avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 8px;
+  flex-shrink: 0;
+  background-color: var(--plum-light);
+  overflow: hidden;
+}
+
+/* ── Article avatar image ── */
+.article-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ── Avatar colour variants ── */
+.av-1 { background-color: #E8D5E8; }
+.av-2 { background-color: #D5F0E8; }
+.av-3 { background-color: #FAE8C0; }
+
+/* ── Article info section ── */
+.article-info {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Article info heading ── */
+.article-info h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+
+/* ── Article info image ── */
+.article-info img {
+  width: 100%;
+  max-width: 200px;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 12px;
+}
+
+/* ── Article meta information ── */
+.article-meta {
+  font-size: 0.85rem;
+  color: var(--text-mid);
+  margin-bottom: 12px;
+}
+
+/* ── Article tags container ── */
+.article-tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+  margin-top: auto;
+}
+
+/* ── Article tag ── */
+.tag {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+/* ── Tag colour variants ── */
+.tag-research { background-color: var(--plum-light); color: var(--plum-dark); }
+.tag-open { background-color: #DCF0D5; color: #1A5C0A; }
+.tag-collaboration { background-color: #D5F0E8; color: #085041; }
+.tag-endometriosis { background-color: var(--blush); color: #72243E; }
+.tag-practitioner { background-color: #D5E8F5; color: #0A3D6B; }
+.tag-guide { background-color: #FAE8C0; color: #7A4A00; }
+
+/* ── Read more button ── */
+.btn-read-more {
+  display: inline-block;
+  color: var(--plum);
+  font-weight: 700;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: text-decoration 0.2s;
+}
+
+/* ── Read more button hover ── */
+.btn-read-more:hover {
+  text-decoration: underline;
+}
+
+/* ── Collaborate section ── */
+.collaborate-section {
+  background-color: var(--white);
+  padding: 60px 40px;
+  border-radius: 12px;
+  text-align: center;
+}
+
+/* ── Collaborate section heading ── */
+.collaborate-section h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 40px;
+}
+
+/* ── Collaborate grid — four columns ── */
+.collaborate-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+/* ── Collaborate card ── */
+.collaborate-card {
+  background-color: var(--beige);
+  padding: 32px 20px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  transition: transform 0.2s;
+}
+
+/* ── Collaborate card hover ── */
+.collaborate-card:hover {
+  transform: translateY(-4px);
+}
+
+/* ── Collaborate button base ── */
+.collaborate-btn {
+  display: inline-block;
+  padding: 12px 24px;
+  border-radius: 40px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: none;
+}
+
+/* ── Submit button variant ── */
+.btn-submit {
+  background-color: var(--plum);
+  color: var(--white);
+}
+
+.btn-submit:hover {
+  background-color: var(--plum-dark);
+}
+
+/* ── Webinar button variant ── */
+.btn-webinar {
+  background-color: #D5F0E8;
+  color: #085041;
+  border: 1.5px solid #085041;
+}
+
+.btn-webinar:hover {
+  background-color: #C0E8E0;
+}
+
+/* ── Volunteer button variant ── */
+.btn-volunteer {
+  background-color: #D5E8F5;
+  color: #0A3D6B;
+  border: 1.5px solid #0A3D6B;
+}
+
+.btn-volunteer:hover {
+  background-color: #C0DFF0;
+}
+
+/* ── Partner button variant ── */
+.btn-partner {
+  background-color: var(--blush);
+  color: #72243E;
+  border: 1.5px solid #72243E;
+}
+
+.btn-partner:hover {
+  background-color: #E8C4C8;
+}
+
+/* ========================================================================
+   FOOTER
+   ======================================================================== */
+
 /* ── Footer — dark plum background ── */
 .footer {
   background-color: var(--plum-dark);
@@ -479,6 +2287,7 @@ nav {
   font-size: 0.85rem;
   color: rgba(255, 255, 255, 0.65);
   text-decoration: none;
+  transition: color 0.2s;
 }
 
 /* ── Footer link when hovered ── */
@@ -512,207 +2321,229 @@ nav {
   font-size: 0.78rem;
   color: rgba(255, 255, 255, 0.5);
   text-decoration: none;
+  transition: color 0.2s;
 }
 
 /* ── Social link when hovered ── */
 .footer-social a:hover {
   color: var(--blush);
 }
-/* ── Page hero — beige background, centred text ── */
-.page-hero {
-  background-color: var(--beige);
-  padding: 60px 40px;
-  text-align: center;
-  border-bottom: 1px solid var(--border);
-  max-width: 100%;
-}
 
-/* ── Page hero inner — limits width ── */
-.page-hero h1 {
-  font-family: 'Playfair Display', serif;
-  font-size: 2.4rem;
-  font-weight: 700;
-  color: var(--text);
-  margin-bottom: 12px;
-}
-
-/* ── Page hero subtext ── */
-.page-hero p {
-  font-size: 0.95rem;
-  color: var(--text-mid);
-  max-width: 600px;
-  margin: 0 auto 24px;
-  line-height: 1.8;
-}
-
-/* ── Page hero image — full width, fixed height ── */
-.page-hero img {
-  width: 100%;
-  max-width: 800px;
-  height: 300px;
-  object-fit: cover;
-  border-radius: 12px;
-  margin-top: 24px;
-}
-/* ── Page hero — beige background with padding ── */
-.page-hero {
-  background-color: var(--beige);
-  padding: 40px 40px 20px;
-  max-width: 1140px;
-  margin: 0 auto;
-}
-
-/* ── Page hero heading — plum colour ── */
-.page-hero h1 {
-  font-family: 'Playfair Display', serif;
-  font-size: 2rem;
-  font-weight: 700;
-  color: var(--plum);
-  margin-bottom: 8px;
-}
-
-/* ── Page hero subtext ── */
-.page-hero p {
-  font-size: 0.92rem;
-  color: var(--text-mid);
-  margin-bottom: 16px;
-}
-
-/* ── Page hero image — full width, fixed height ── */
-.page-hero img {
-  width: 100%;
-  height: 300px;
-  object-fit: cover;
-  border-radius: 10px;
-  margin-top: 16px;
-}
-
-/* ── Classes section wrapper ── */
-.classes-section {
-  background-color: var(--beige);
-  padding: 20px 40px 60px;
-  max-width: 1140px;
-  margin: 0 auto;
-}
-
-/* ── Filter pills row ── */
-.filter-row {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
+/* ── Footer top custom — for custom footer layout ── */
+.footer-top-custom {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 48px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   margin-bottom: 32px;
 }
 
-/* ── Individual filter pill ── */
-.filter-pill {
-  padding: 8px 20px;
-  border-radius: 40px;
-  border: 1.5px solid var(--plum);
-  font-size: 0.85rem;
-  font-weight: 700;
-  color: var(--plum);
-  cursor: pointer;
-  background-color: var(--white);
+/* ── Footer brand custom ── */
+.footer-brand-custom {
+  grid-column: 1 / 2;
 }
 
-/* ── Active filter pill — filled plum ── */
-.filter-pill.active {
-  background-color: var(--plum);
+/* ── Footer social custom ── */
+.footer-social-custom {
+  grid-column: 2 / 3;
+}
+
+/* ── Contact details ── */
+.contact-details {
+  grid-column: 3 / 4;
+}
+
+/* ── Contact details paragraph ── */
+.contact-details p {
+  font-size: 0.85rem;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.65);
+  margin-bottom: 20px;
+}
+
+/* ── Contact details strong ── */
+.contact-details strong {
   color: var(--white);
 }
 
-/* ── Cards grid — three per row ── */
-.cards-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-}
-
-/* ── Individual class card ── */
-.class-card {
-  background-color: var(--plum-light);
-  border: 1.5px solid var(--plum);
-  border-radius: 12px;
-  overflow: hidden;
-}
-
-/* ── Card image area ── */
-.card-img {
-  position: relative;
-  width: 100%;
-  height: 180px;
-  background-color: var(--plum-light);
-  overflow: hidden;
-}
-
-/* ── Card image ── */
-.card-img img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* ── Card body — padding around text ── */
-.card-body {
-  padding: 16px;
-}
-
-/* ── Card heading ── */
-.card-body h3 {
-  font-family: 'Playfair Display', serif;
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--text);
-  margin-bottom: 6px;
-}
-
-/* ── Card subcategory label ── */
-.card-sub-label {
-  font-size: 0.78rem;
-  font-weight: 700;
-  color: var(--plum);
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  margin-bottom: 8px;
-}
-
-/* ── Card subcategory list ── */
-.card-body ul {
-  list-style: none;
-  margin-bottom: 16px;
-}
-
-/* ── Individual subcategory item ── */
-.card-body ul li {
-  font-size: 0.85rem;
-  color: var(--text-mid);
-  padding: 3px 0;
-}
-
-/* ── Book button — sits at bottom right of card ── */
-.card-btn {
-  display: block;
-  text-align: right;
-  background-color: var(--plum);
-  color: var(--white);
-  padding: 8px 20px;
-  border-radius: 40px;
-  font-size: 0.82rem;
-  font-weight: 700;
+/* ── Contact details link ── */
+.contact-details a {
+  color: var(--blush);
   text-decoration: none;
-  width: fit-content;
-  margin-left: auto;
+  transition: color 0.2s;
 }
 
-/* ── Book button when hovered ── */
-.card-btn:hover {
-  background-color: var(--plum-dark);
+/* ── Contact details link hover ── */
+.contact-details a:hover {
+  text-decoration: underline;
 }
 
-/* ── Tag colour variants ── */
-.tag-plum  { background-color: var(--plum-light); color: var(--plum-dark); }
-.tag-pink  { background-color: var(--blush); color: #72243E; }
-.tag-teal  { background-color: #D5F0E8; color: #085041; }
-.tag-amber { background-color: #FAE8C0; color: #7A4A00; }
-.tag-blue  { background-color: #D5E8F5; color: #0A3D6B; }
-.tag-green { background-color: #DCF0D5; color: #1A5C0A; }
+/* ── Footer divider ── */
+.footer-divider {
+  border: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin: 32px 0;
+}
+
+/* ── Footer bottom custom ── */
+.footer-bottom-custom {
+  text-align: center;
+}
+
+/* ── Social icons in footer ── */
+.social-icons {
+  display: flex;
+  gap: 12px;
+}
+
+/* ── Social icon svg ── */
+.social-icons a {
+  color: rgba(255, 255, 255, 0.65);
+  transition: color 0.2s;
+}
+
+/* ── Social icon svg hover ── */
+.social-icons a:hover {
+  color: var(--blush);
+}
+
+/* ========================================================================
+   RESPONSIVE DESIGN
+   ======================================================================== */
+
+/* ── Tablet screens (768px and below) ── */
+@media (max-width: 768px) {
+  .nav-inner {
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .nav-links {
+    gap: 16px;
+    font-size: 0.8rem;
+    order: 3;
+    width: 100%;
+  }
+  
+  .pillars-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .articles-list {
+    grid-template-columns: 1fr;
+  }
+  
+  .events-list {
+    grid-template-columns: 1fr;
+  }
+  
+  .values-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .booking-layout {
+    grid-template-columns: 1fr;
+  }
+  
+  .footer-top {
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  .testimonials-grid table tr {
+    display: block;
+    width: 100%;
+  }
+  
+  .testimonials-grid table td {
+    display: block;
+    width: 100% !important;
+  }
+}
+
+/* ── Mobile screens (640px and below) ── */
+@media (max-width: 640px) {
+  nav,
+  .nav-inner {
+    padding: 12px 20px;
+  }
+  
+  .nav-links {
+    gap: 12px;
+    flex-direction: column;
+  }
+  
+  .hero {
+    padding: 40px 20px;
+  }
+  
+  .hero-eyebrow {
+    font-size: 1.8rem;
+  }
+  
+  .pillars-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .cards-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .filter-row {
+    gap: 6px;
+  }
+  
+  .filter-pill {
+    padding: 6px 16px;
+    font-size: 0.8rem;
+  }
+  
+  .login-card {
+    padding: 32px 24px;
+  }
+  
+  .form-row,
+  .form-row-three,
+  .form-row-two {
+    grid-template-columns: 1fr;
+  }
+  
+  .values-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .hero-btns {
+    flex-direction: column;
+  }
+  
+  .btn-hero-fill,
+  .btn-outline-white {
+    width: 100%;
+  }
+  
+  .footer-top {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  
+  .footer-top-custom {
+    grid-template-columns: 1fr;
+  }
+  
+  .footer-social-custom,
+  .contact-details {
+    grid-column: 1;
+  }
+  
+  .statements-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .type-pills {
+    flex-wrap: wrap;
+  }
+}
