@@ -44,6 +44,21 @@ entry 4 -debugged code. updated image name to match names on code
 entry 5 - made size adjustments to fit page and context
 entry 6 - removed menu bar will add back once we can include js and filter pills
 
+PART2
+CORRECTIONS: Edited comments
+The wireframes were sent please follow up
+
+entry 1: create css file
+entry 2: Added a line of code on all my HTML files to link them to the css file
+entry 3: Added code to css file
+entry 4: tested code
+entry 4: debug code
+entry 5: removed the lotus flower on logo
+entry 6: tested code
+entry 7: debug code 
+
+
+
 7. References
 (a) Florida Endocrinology and Diabetes Center (2026) How (and why) to cycle your exercise with your menstrual cycle. Available at: View article (Accessed: 21 April 2026).
 (b) Mozilla Developer Network (2025). HTML: HyperText Markup Language. [online] Available at: https://developer.mozilla.org/en-US/docs/Web/HTML [Accessed 20 April 2025].

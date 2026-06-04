@@ -650,7 +650,7 @@ nav {
   align-items: center;
   justify-content: center;
   min-height: calc(100vh - 300px);
-  padding: 40px 20px;
+  padding: 20px;
   background-color: var(--beige);
 }
 
@@ -659,8 +659,7 @@ nav {
   background-color: var(--white);
   border: 1.5px solid var(--border);
   border-radius: 12px;
-  padding: 48px 40px;
-  max-width: 400px;
+  padding: 32px 24px;
   width: 100%;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
@@ -1246,7 +1245,7 @@ nav {
 /* ── Enquiry form ── */
 .enquiry-form {
   background-color: var(--beige);
-  padding: 40px;
+  padding: 20px;
   border-radius: 12px;
   max-width: 500px;
   margin: 0 auto;
@@ -1436,7 +1435,7 @@ nav {
 /* ── Booking page main section ── */
 .booking-page {
   background-color: var(--beige);
-  padding: 40px;
+  padding: 20px;
   max-width: 1140px;
   margin: 0 auto;
 }
@@ -1493,16 +1492,19 @@ nav {
 /* ── Booking layout — two columns ── */
 .booking-layout {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 40px;
+  grid-template-columns: 1fr;
+  gap: 0;
 }
 
 /* ── Steps column ── */
 .steps-col {
-  background-color: var(--white);
-  padding: 32px;
-  border-radius: 12px;
-  border: 1px solid var(--border);
+  background-color: var(--beige);
+  padding: 20px 0;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 24px;
+  border-radius: 0;
+  border: none;
 }
 
 /* ── Steps column heading ── */
@@ -1755,7 +1757,7 @@ nav {
   align-items: center;
   justify-content: center;
   min-height: calc(100vh - 300px);
-  padding: 40px 20px;
+  padding: 20px;
   background-color: var(--beige);
 }
 
@@ -1764,8 +1766,7 @@ nav {
   background-color: var(--white);
   border: 1.5px solid var(--border);
   border-radius: 12px;
-  padding: 48px 40px;
-  max-width: 450px;
+  padding: 32px 24px;
   width: 100%;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
