@@ -57,13 +57,22 @@ entry 5: removed the lotus flower on logo
 entry 6: tested code
 entry 7: debug code 
 
+### Responsive Design Screenshots
+
+
+### Desktop View 
+![screenshot](image-1.png)
+
+
+### Mobile View - iPhone 13 
+![screenshot](image-2.png)
 
 
 7. References
 (a) Florida Endocrinology and Diabetes Center (2026) How (and why) to cycle your exercise with your menstrual cycle. Available at: View article (Accessed: 21 April 2026).
-(b) Mozilla Developer Network (2025). HTML: HyperText Markup Language. [online] Available at: https://developer.mozilla.org/en-US/docs/Web/HTML [Accessed 20 April 2025].
-(c) Pexels (2025). Free stock photos. [online] Available at: https://www.pexels.com [Accessed 20 April 2025].
-(d) Unsplash (2025). Free high-resolution photos. [online] Available at: https://unsplash.com [Accessed 20 April 2025].
-(e) Visual Studio Code (2025). Visual Studio Code — Code Editing. [online] Available at: https://code.visualstudio.com [Accessed 20 April 2025].
-(f)Whimsical (2025). Whimsical — The Visual Workspace. [online] Available at: https://whimsical.com [Accessed 20 April 2025].
-(g) W3Schools (2025). HTML Tutorial. [online] Available at: https://www.w3schools.com/html [Accessed 20 April 2025].
+(b) Mozilla Developer Network (2026). HTML: HyperText Markup Language. [online] Available at: https://developer.mozilla.org/en-US/docs/Web/HTML [Accessed 20 April 2026].
+(c) Pexels (2025). Free stock photos. [online] Available at: https://www.pexels.com [Accessed 20 April 2026].
+(d) Unsplash (2025). Free high-resolution photos. [online] Available at: https://unsplash.com [Accessed 20 April 2026].
+(e) Visual Studio Code (2025). Visual Studio Code — Code Editing. [online] Available at: https://code.visualstudio.com [Accessed 20 April 2026].
+(f)Whimsical (2025). Whimsical — The Visual Workspace. [online] Available at: https://whimsical.com [Accessed 20 April 2026].
+(g) W3Schools (2025). CSS Tutorial. [online] Available at: https://www.w3schools.com/CSS [Accessed 20 May 2026].

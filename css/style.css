@@ -1078,6 +1078,7 @@ nav {
   border-top: 2px dashed var(--plum);
   margin: 48px 0;
 }
+
 /* ── Events list container ── */
 .events-list {
   display: flex;
@@ -1091,11 +1092,9 @@ nav {
   display: flex;
   align-items: center;
   gap: 20px;
-
   background-color: var(--white);
   border: 1px solid var(--border);
   border-radius: 12px;
-
   padding: 16px 24px;
   transition: transform 0.2s;
 }
@@ -1175,17 +1174,13 @@ nav {
 /* ── RSVP button ── */
 .btn-rsvp {
   margin-left: auto;
-
   background-color: var(--plum);
   color: var(--white);
-
   padding: 10px 24px;
   border-radius: 40px;
-
   text-decoration: none;
   font-size: 0.82rem;
   font-weight: 700;
-
   transition: background-color 0.2s;
 }
 
@@ -1245,7 +1240,7 @@ nav {
 /* ── Enquiry form ── */
 .enquiry-form {
   background-color: var(--beige);
-  padding: 20px;
+  padding: 40px;
   border-radius: 12px;
   max-width: 500px;
   margin: 0 auto;
@@ -1435,7 +1430,7 @@ nav {
 /* ── Booking page main section ── */
 .booking-page {
   background-color: var(--beige);
-  padding: 20px;
+  padding: 40px;
   max-width: 1140px;
   margin: 0 auto;
 }
@@ -1492,19 +1487,16 @@ nav {
 /* ── Booking layout — two columns ── */
 .booking-layout {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 0;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
 }
 
 /* ── Steps column ── */
 .steps-col {
   background-color: var(--beige);
-  padding: 20px 0;
-  padding-bottom: 24px;
-  border-bottom: 1px solid var(--border);
-  margin-bottom: 24px;
-  border-radius: 0;
-  border: none;
+  padding: 32px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
 }
 
 /* ── Steps column heading ── */
@@ -1576,7 +1568,7 @@ nav {
 
 /* ── Form column ── */
 .form-col {
-  background-color: var(--white);
+  background-color: var(--beige);
   padding: 32px;
   border-radius: 12px;
   border: 1px solid var(--border);
@@ -2427,6 +2419,20 @@ nav {
    RESPONSIVE DESIGN
    ======================================================================== */
 
+/* ── Tablet and larger screens — restore larger padding ── */
+@media (min-width: 768px) {
+  .login-page,
+  .register-page {
+    padding: 40px 20px;
+  }
+  
+  .login-card,
+  .register-card {
+    padding: 48px 40px;
+    max-width: 450px;
+  }
+}
+
 /* ── Tablet screens (768px and below) ── */
 @media (max-width: 768px) {
   .nav-inner {
@@ -2560,5 +2566,49 @@ nav {
   
   .type-pills {
     flex-wrap: wrap;
+  }
+  
+  /* ── Booking page mobile — stack columns vertically ── */
+  .booking-page {
+    padding: 20px;
+  }
+  
+  .booking-layout {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  
+  .steps-col,
+  .form-col {
+    background-color: var(--beige);
+    border: none;
+    padding: 20px 0;
+    border-radius: 0;
+  }
+  
+  .steps-col {
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 24px;
+    margin-bottom: 24px;
+  }
+  
+  .form-col {
+    padding-top: 24px;
+  }
+  
+  /* ── Focus areas on mobile ── */
+  .focus-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  /* ── Collaborate grid on mobile ── */
+  .collaborate-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  /* ── Research cards on mobile ── */
+  .research-card {
+    flex-direction: column;
+    gap: 12px;
   }
 }
