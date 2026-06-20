@@ -69,6 +69,18 @@ entry 7: debug code
 
 ## Part 3 Changelog
 
+## Part 2 Feedback Corrections
+
+- **Entry 1**: Enhanced default CSS styles - Added comprehensive default styling for typography, spacing, and element resets to improve visual consistency.
+
+- **Entry 2**: Refined typography across all pages - Updated font-size, line-height, and letter-spacing for better readability and hierarchy on all screen sizes.
+
+- **Entry 3**: Improved responsive design adjustments - Enhanced media queries for tablet (768px) and mobile (480px) with proper layout and typography scaling.
+
+- **Entry 4**: Restructured changelog with detailed entries - Replaced vague entries with specific documentation of changes, reasoning, affected files, and results for complete development transparency.
+
+- **Entry 5**: Updated README documentation - Reorganized README with clearer project structure and more detailed descriptions of CSS implementations.
+
 ### Form Validation Implementation
 - **Entry 1**: Added JavaScript form validation to register.html - Validates firstname, lastname, email format, password strength (min 8 characters), password confirmation, and terms agreement. User receives alert if validation fails.
 
