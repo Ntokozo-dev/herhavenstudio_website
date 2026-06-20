@@ -181,3 +181,75 @@ function initializeAccordion() {
     });
   });
 }  
+/*
+ * Initializes image slideshow/carousel functionality
+ * Rotates through images automatically
+ * Allows manual navigation with previous/next buttons
+ */
+function initializeSlideshow() {
+  // Get slideshow container and slide elements
+  const slideshowContainer = document.querySelector(".slideshow-container");
+  if (!slideshowContainer) return; // Exit if no slideshow on page
+ 
+  const slides = document.querySelectorAll(".slide");
+  const prevBtn = document.querySelector(".prev-btn");
+  const nextBtn = document.querySelector(".next-btn");
+ 
+  let currentSlide = 0; // Track current slide index
+ 
+  /*
+   * Displays the slide at specified index
+   * Hides all slides first, then shows only the active one
+   */
+  function showSlide(n) {
+    // Wrap around if index exceeds number of slides
+    if (n >= slides.length) {
+      currentSlide = 0;
+    }
+    // Wrap around if index is negative
+    if (n < 0) {
+      currentSlide = slides.length - 1;
+    }
+ 
+    // Hide all slides
+    slides.forEach((slide) => {
+      slide.style.display = "none";
+    });
+ 
+    // Show current slide with fade-in effect
+    slides[currentSlide].style.display = "block";
+  }
+ 
+  /*
+   * Move to next slide
+   * Called by next button
+   */
+  function nextSlide() {
+    currentSlide++;
+    showSlide(currentSlide);
+  }
+ 
+  /*
+   * Move to previous slide
+   * Called by previous button
+   */
+  function prevSlide() {
+    currentSlide--;
+    showSlide(currentSlide);
+  }
+ 
+  // Add click event listeners to navigation buttons
+  if (nextBtn) {
+    nextBtn.addEventListener("click", nextSlide);
+  }
+ 
+  if (prevBtn) {
+    prevBtn.addEventListener("click", prevSlide);
+  }
+ 
+  // Auto-advance slides every 5 seconds (5000 milliseconds)
+  setInterval(nextSlide, 5000);
+ 
+  // Display first slide on page load
+  showSlide(currentSlide);
+}
