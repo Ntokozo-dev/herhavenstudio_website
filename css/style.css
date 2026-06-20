@@ -2612,3 +2612,93 @@ nav {
     gap: 12px;
   }
 }
+/* SLIDESHOW STYLES */
+.slideshow-container {
+  position: relative;
+  max-width: 600px;
+  margin: 20px auto;
+}
+
+.slide {
+  display: none;
+  width: 100%;
+}
+
+.slide img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.prev-btn, .next-btn {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  background-color: rgba(0,0,0,0.5);
+  border: none;
+  border-radius: 3px;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.next-btn {
+  right: 0;
+}
+
+.prev-btn {
+  left: 0;
+}
+
+/* ACCORDION STYLES */
+.accordion-item {
+  border: 1px solid #ddd;
+  margin: 10px 0;
+  border-radius: 4px;
+}
+
+.accordion-header {
+  padding: 15px;
+  cursor: pointer;
+  background-color: #f9f9f9;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.accordion-header:hover {
+  background-color: #f0f0f0;
+}
+
+.accordion-header h3 {
+  margin: 0;
+  font-size: 16px;
+}
+
+.accordion-icon {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.accordion-item.active .accordion-icon {
+  transform: rotate(45deg);
+}
+
+.accordion-content {
+  padding: 15px;
+  background-color: #fff;
+}
+
+/* GOOGLE MAPS */
+.map-container {
+  margin: 30px 0;
+  text-align: center;
+}
+
+.map-container iframe {
+  border-radius: 8px;
+  max-width: 100%;
+}
