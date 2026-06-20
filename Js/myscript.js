@@ -253,3 +253,104 @@ function initializeSlideshow() {
   // Display first slide on page load
   showSlide(currentSlide);
 }
+/*
+ * Initializes modal functionality for class booking
+ * Opens modal when "Book a class" button is clicked
+ * Closes modal when X button or cancel button is clicked
+ */
+function initializeBookingModal() {
+  // Get modal elements
+  const modal = document.getElementById("bookingModal");
+  if (!modal) return; // Exit if no modal on page
+ 
+  const openModalBtn = document.querySelector(".open-modal-btn");
+  const closeModalBtn = document.querySelector(".close-modal-btn");
+  const cancelModalBtn = document.querySelector(".cancel-modal-btn");
+ 
+  /*
+   * Opens the booking modal
+   * Displays modal and prevents background scrolling
+   */
+  function openModal() {
+    modal.style.display = "block";
+    document.body.style.overflow = "hidden"; // Prevent scrolling behind modal
+  }
+ 
+  /*
+   * Closes the booking modal
+   * Hides modal and restores background scrolling
+   */
+  function closeModal() {
+    modal.style.display = "none";
+    document.body.style.overflow = "auto"; // Restore scrolling
+  }
+ 
+  // Add event listeners to open/close buttons
+  if (openModalBtn) {
+    openModalBtn.addEventListener("click", openModal);
+  }
+ 
+  if (closeModalBtn) {
+    closeModalBtn.addEventListener("click", closeModal);
+  }
+ 
+  if (cancelModalBtn) {
+    cancelModalBtn.addEventListener("click", closeModal);
+  }
+ 
+  /*
+   * Close modal when user clicks outside of it
+   * Allows dismissal by clicking the overlay
+   */
+  window.addEventListener("click", function (event) {
+    if (event.target === modal) {
+      closeModal();
+    }
+  });
+}
+ 
+// ============================================
+// 5. CLASS FILTER (BONUS)
+// ============================================
+ 
+/*
+ * Initializes class filter functionality on classes.html
+ * Allows users to filter classes by category
+ * Shows/hides class cards based on selected filter
+ */
+function initializeClassFilter() {
+  // Get all filter pills and class cards
+  const filterPills = document.querySelectorAll(".filter-pill");
+  const classCards = document.querySelectorAll(".class-card");
+ 
+  if (filterPills.length === 0) return; // Exit if no filters on page
+ 
+  // Add click event listener to each filter pill
+  filterPills.forEach((pill) => {
+    pill.addEventListener("click", function () {
+      // Get the filter value from the pill's data attribute
+      const filterValue = this.getAttribute("data-filter");
+ 
+      // Remove active class from all pills
+      filterPills.forEach((p) => {
+        p.classList.remove("active");
+      });
+ 
+      // Add active class to clicked pill
+      this.classList.add("active");
+ 
+      // Show/hide class cards based on filter
+      classCards.forEach((card) => {
+        // Get the card's category from its data attribute
+        const cardCategory = card.getAttribute("data-category");
+ 
+        // Show card if filter is "all" or category matches
+        if (filterValue === "all" || cardCategory === filterValue) {
+          card.style.display = "block";
+        } else {
+          card.style.display = "none";
+        }
+      });
+    });
+  });
+}
