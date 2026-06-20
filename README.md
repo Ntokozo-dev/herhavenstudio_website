@@ -90,6 +90,7 @@ entry 7: debug code
 
 ### Interactive Features
 - **Entry 4**: Implemented image slideshow on index.html - Created carousel with manual navigation buttons (previous/next) and auto-advance every 5 seconds. Uses DOM manipulation to show/hide images dynamically.
+- Images fade at edges using CSS mask-image gradient for smooth blending. Slideshow properly nested within hero section with soft rounded corners.
 
 - **Entry 5**: Created FAQ accordion on community.html - Added collapsible FAQ section with 5 common questions. JavaScript toggles display of answers and manages open/closed states. Only one accordion item open at a time for better UX.
 
@@ -106,6 +107,9 @@ entry 7: debug code
 - **Entry 10**: Tested slideshow and accordion functionality - Confirmed images rotate automatically every 5 seconds and accordion expands/collapses correctly. Manual buttons navigate slideshow properly.
 
 - **Entry 11**: Deployed website to GitHub Pages - Connected repository to GitHub Pages, enabled automatic deployment. Website now live and accessible online.
+
+## HERO SECTION CHANGES
+- **Entry 12**: Added cloudy background to hero section - Integrated cloud background image as hero section background using CSS. Fixed relative path (../images/clouds-background.jpg) to correctly load from images folder. Applied background-size: cover, background-position: center, and background-attachment: fixed for responsive parallax effect. Added fallback background-color for page loading.
 
 
 7. References
