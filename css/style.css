@@ -2615,42 +2615,54 @@ nav {
 /* SLIDESHOW STYLES */
 .slideshow-container {
   position: relative;
-  max-width: 600px;
+  width: 100%;
+  max-width: 1200px;
+  height: 500px;
   margin: 20px auto;
+  overflow: hidden;
+  border-radius: 8px;
 }
 
 .slide {
   display: none;
   width: 100%;
+  height: 100%;
 }
 
 .slide img {
   width: 100%;
-  height: auto;
-  border-radius: 8px;
+  height: 100%;
+  object-fit: cover;
 }
-
+/* Navigation buttons */
 .prev-btn, .next-btn {
   cursor: pointer;
   position: absolute;
   top: 50%;
-  width: auto;
-  padding: 16px;
-  margin-top: -22px;
-  color: white;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  padding: 0;
   background-color: rgba(0,0,0,0.5);
+  color: white;
   border: none;
   border-radius: 3px;
   font-weight: bold;
   font-size: 18px;
+  z-index: 10;
+  transition: background-color 0.3s;
+}
+
+.prev-btn:hover, .next-btn:hover {
+  background-color: rgba(0, 0, 0, 0.8);
 }
 
 .next-btn {
-  right: 0;
+  right: 20px;
 }
 
 .prev-btn {
-  left: 0;
+  left: 20px;
 }
 
 /* ACCORDION STYLES */
