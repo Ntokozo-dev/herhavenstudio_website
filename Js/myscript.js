@@ -140,4 +140,44 @@ function validateEnquiryForm() {
   // All validations passed
   alert("Thank you for reaching out! We will respond within 24 hours.");
   return true;
-}    
+} 
+/*
+ * Initializes accordion functionality for FAQ section
+ * Allows users to expand/collapse individual FAQ items
+ * Automatically closes other open items when one is opened
+ */
+function initializeAccordion() {
+  // Get all accordion header elements
+  const accordionHeaders = document.querySelectorAll(".accordion-header");
+ 
+  // Add click event listener to each header
+  accordionHeaders.forEach((header) => {
+    header.addEventListener("click", function () {
+      // Get the accordion content that follows this header
+      const accordionContent = this.nextElementSibling;
+      const accordionItem = this.parentElement;
+ 
+      // Toggle active class on the item (for styling)
+      accordionItem.classList.toggle("active");
+ 
+      // Toggle display of content (slide animation)
+      if (accordionContent.style.display === "block") {
+        accordionContent.style.display = "none";
+      } else {
+        // Close all other accordion items first
+        const allItems = document.querySelectorAll(".accordion-item");
+        allItems.forEach((item) => {
+          item.classList.remove("active");
+          const content = item.querySelector(".accordion-content");
+          if (content) {
+            content.style.display = "none";
+          }
+        });
+ 
+        // Open the clicked accordion item
+        accordionItem.classList.add("active");
+        accordionContent.style.display = "block";
+      }
+    });
+  });
+}  
