@@ -362,19 +362,6 @@ document.addEventListener("DOMContentLoaded", function () {
       validateRegisterForm();
     });
   }
-/*
- * Attach validation to form submission buttons
- * This needs to be called on page load for each page
- */
-document.addEventListener("DOMContentLoaded", function () {
-  // Register page - validate register form on button click
-  const registerBtn = document.querySelector(".btn-register");
-  if (registerBtn) {
-    registerBtn.addEventListener("click", function (event) {
-      event.preventDefault(); // Prevent default link behavior
-      validateRegisterForm();
-    });
-  }
  
   // Booking page - validate booking form on button click
   const bookingBtn = document.querySelector(".btn-confirm");
@@ -406,4 +393,3 @@ document.addEventListener("DOMContentLoaded", function () {
   // Initialize class filter on classes page
   initializeClassFilter();
 });
-   
