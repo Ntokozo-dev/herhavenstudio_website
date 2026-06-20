@@ -67,6 +67,34 @@ entry 7: debug code
 ### Mobile View - iPhone 13 
 ![screenshot](image-2.png)
 
+## Part 3 Changelog
+
+### Form Validation Implementation
+- **Entry 1**: Added JavaScript form validation to register.html - Validates firstname, lastname, email format, password strength (min 8 characters), password confirmation, and terms agreement. User receives alert if validation fails.
+
+- **Entry 2**: Added JavaScript form validation to booking.html - Validates programme selection, date, time slot, fullname, and email format. Ensures users complete all required fields before booking.
+
+- **Entry 3**: Added JavaScript form validation to community.html enquiry form - Validates name, email format, and message length (minimum 10 characters). Prevents empty submissions.
+
+### Interactive Features
+- **Entry 4**: Implemented image slideshow on index.html - Created carousel with manual navigation buttons (previous/next) and auto-advance every 5 seconds. Uses DOM manipulation to show/hide images dynamically.
+
+- **Entry 5**: Created FAQ accordion on community.html - Added collapsible FAQ section with 5 common questions. JavaScript toggles display of answers and manages open/closed states. Only one accordion item open at a time for better UX.
+
+- **Entry 6**: Embedded Google Maps on about.html footer - Added interactive map showing studio location in Johannesburg. Users can zoom and explore location directly on the site.
+
+### Code Documentation & Quality
+- **Entry 7**: Added comprehensive comments to myscript.js - Each function includes detailed comment blocks explaining purpose, parameters, and logic flow. Line-by-line comments for complex validation logic.
+
+- **Entry 8**: Updated HTML across all pages - Added proper event listener attachment via onclick="return false;" to form buttons. Added required HTML structure for slideshow, accordion, and maps integration.
+
+### Deployment & Testing
+- **Entry 9**: Tested form validation across all browsers - Verified validation works on register.html, booking.html, and community.html. Tested error messages and success confirmations.
+
+- **Entry 10**: Tested slideshow and accordion functionality - Confirmed images rotate automatically every 5 seconds and accordion expands/collapses correctly. Manual buttons navigate slideshow properly.
+
+- **Entry 11**: Deployed website to GitHub Pages - Connected repository to GitHub Pages, enabled automatic deployment. Website now live and accessible online.
+
 
 7. References
 (a) Florida Endocrinology and Diabetes Center (2026) How (and why) to cycle your exercise with your menstrual cycle. Available at: View article (Accessed: 21 April 2026).
