@@ -101,4 +101,43 @@ function validateBookingForm() {
   alert("Booking confirmed! A confirmation email will be sent to " + email);
   return true;
 }
-    
+
+/*
+ * Validates the general enquiry form on community.html
+ * Checks: name, email format, message content
+ * Returns: true if all fields valid, false otherwise
+ */
+function validateEnquiryForm() {
+  // Get form input elements
+  const name = document.getElementById("name").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const message = document.getElementById("message").value.trim();
+ 
+  // Validate name - must not be empty
+  if (name === "") {
+    alert("Please enter your full name.");
+    return false;
+  }
+ 
+  // Validate email format using regex pattern
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(email)) {
+    alert("Please enter a valid email address.");
+    return false;
+  }
+ 
+  // Validate message - must not be empty and have minimum length
+  if (message === "") {
+    alert("Please enter your message.");
+    return false;
+  }
+ 
+  if (message.length < 10) {
+    alert("Message must be at least 10 characters long.");
+    return false;
+  }
+ 
+  // All validations passed
+  alert("Thank you for reaching out! We will respond within 24 hours.");
+  return true;
+}    
