@@ -349,3 +349,61 @@ function initializeClassFilter() {
     });
   });
 } 
+/*
+ * Attach validation to form submission buttons
+ * This needs to be called on page load for each page
+ */
+document.addEventListener("DOMContentLoaded", function () {
+  // Register page - validate register form on button click
+  const registerBtn = document.querySelector(".btn-register");
+  if (registerBtn) {
+    registerBtn.addEventListener("click", function (event) {
+      event.preventDefault(); // Prevent default link behavior
+      validateRegisterForm();
+    });
+  }
+/*
+ * Attach validation to form submission buttons
+ * This needs to be called on page load for each page
+ */
+document.addEventListener("DOMContentLoaded", function () {
+  // Register page - validate register form on button click
+  const registerBtn = document.querySelector(".btn-register");
+  if (registerBtn) {
+    registerBtn.addEventListener("click", function (event) {
+      event.preventDefault(); // Prevent default link behavior
+      validateRegisterForm();
+    });
+  }
+ 
+  // Booking page - validate booking form on button click
+  const bookingBtn = document.querySelector(".btn-confirm");
+  if (bookingBtn) {
+    bookingBtn.addEventListener("click", function (event) {
+      event.preventDefault(); // Prevent default link behavior
+      validateBookingForm();
+    });
+  }
+ 
+  // Community enquiry page - validate enquiry form on button click
+  const enquiryBtn = document.querySelector(".btn-send");
+  if (enquiryBtn) {
+    enquiryBtn.addEventListener("click", function (event) {
+      event.preventDefault(); // Prevent default link behavior
+      validateEnquiryForm();
+    });
+  }
+ 
+  // Initialize accordions on pages that have them
+  initializeAccordion();
+ 
+  // Initialize slideshow on pages that have it
+  initializeSlideshow();
+ 
+  // Initialize booking modal on pages that have it
+  initializeBookingModal();
+ 
+  // Initialize class filter on classes page
+  initializeClassFilter();
+});
+   
