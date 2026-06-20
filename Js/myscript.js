@@ -308,11 +308,6 @@ function initializeBookingModal() {
     }
   });
 }
- 
-// ============================================
-// 5. CLASS FILTER (BONUS)
-// ============================================
- 
 /*
  * Initializes class filter functionality on classes.html
  * Allows users to filter classes by category
@@ -353,4 +348,4 @@ function initializeClassFilter() {
       });
     });
   });
-}
+} 
