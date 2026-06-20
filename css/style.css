@@ -136,12 +136,15 @@ nav {
 
 /* ── Hero section — light purple background with dark purple border ── */
 .hero {
-  background-color: #F0E6FA;
-  border: 2px solid #730FC3;
-  padding: 80px 40px;
+  background-image: url('../images/clouds-background.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  padding: 60px 20px;
   text-align: center;
+  min-height: 600px;
 }
-
 /* ── Hero inner — limits width and centres content ── */
 .hero-inner {
   max-width: 700px;
@@ -164,7 +167,7 @@ nav {
   font-family: 'Playfair Display', serif;
   font-size: 2.4rem;
   font-weight: 700;
-  color: #730FC3;
+  color:  #5a4a6a;
   line-height: 1.2;
   margin-bottom: 16px;
 }
@@ -2620,13 +2623,11 @@ nav {
   height: 500px;
   margin: 20px auto;
   overflow: hidden;
-  border-radius: 8px;
-}
-
-.slide {
-  display: none;
-  width: 100%;
-  height: 100%;
+  border-radius: 20px;
+  
+  /* Fade edges into background */
+  mask-image: radial-gradient(ellipse at center, black 0%, black 60%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse at center, black 0%, black 60%, transparent 100%);
 }
 
 .slide img {
