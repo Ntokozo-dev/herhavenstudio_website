@@ -17,13 +17,24 @@ function validateRegisterForm() {
     alert("Please enter your first name.");
     return false;
   }
- 
+  
+  // Validate firstname contains no numbers - names should only have letters
+  const nameRegex = /^[a-zA-Z\s'-]+$/;
+  if (!nameRegex.test(firstname)) {
+    alert("First name must contain letters only (no numbers).");
+    return false;
+  }
+
   // Validate lastname - must not be empty
   if (lastname === "") {
     alert("Please enter your last name.");
     return false;
   }
- 
+  // Validate lastname contains no numbers - names should only have letters
+  if (!nameRegex.test(lastname)) {
+    alert("Last name must contain letters only (no numbers).");
+    return false;
+  }
   // Validate email - check format using regex pattern
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (!emailRegex.test(email)) {
@@ -77,7 +88,14 @@ function validateBookingForm() {
     alert("Please select a date for your booking.");
     return false;
   }
- 
+ // Validate date is not in the past - reject dates before today
+  const selectedDate = new Date(date);
+  const today = new Date();
+  today.setHours(0, 0, 0, 0); // Set to midnight for accurate comparison
+  if (selectedDate < today) {
+    alert("Please select a future date. Past dates cannot be booked.");
+    return false;
+  }
   // Validate time selection - cannot be empty
   if (time === "") {
     alert("Please select a time slot.");
@@ -89,7 +107,12 @@ function validateBookingForm() {
     alert("Please enter your full name.");
     return false;
   }
- 
+  // Validate fullname contains no numbers - names should only have letters
+  const nameRegex = /^[a-zA-Z\s'-]+$/;
+  if (!nameRegex.test(fullname)) {
+    alert("Please enter a valid name (letters and spaces only, no numbers).");
+    return false;
+  }
   // Validate email format using regex pattern
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (!emailRegex.test(email)) {
@@ -118,7 +141,12 @@ function validateEnquiryForm() {
     alert("Please enter your full name.");
     return false;
   }
- 
+// Validate name contains no numbers - names should only have letters
+  const nameRegex = /^[a-zA-Z\s'-]+$/;
+  if (!nameRegex.test(name)) {
+    alert("Please enter a valid name (letters and spaces only, no numbers).");
+    return false;
+  } 
   // Validate email format using regex pattern
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (!emailRegex.test(email)) {
