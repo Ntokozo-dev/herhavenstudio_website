@@ -203,10 +203,64 @@ function validateLoginForm() {
     alert("Password must be at least 8 characters long.");
     return false;
   }
-}
+
  
   // All validations passed
   alert("Login successful! Welcome back to Her Haven Studio.");
+  return true;
+}
+
+/*
+ * Validates the contributor form on contributor.html
+ * Checks: fullname (no numbers), email format, expertise area, message content
+ * Returns: true if all fields valid, false otherwise
+ */
+function validateContributorForm() {
+  // Get form input elements
+  const fullname = document.getElementById("fullname").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const expertise = document.getElementById("expertise").value;
+  const message = document.getElementById("message").value.trim();
+ 
+  // Validate fullname - must not be empty
+  if (fullname === "") {
+    alert("Please enter your full name.");
+    return false;
+  }
+ 
+  // Validate fullname contains no numbers - names should only have letters
+  const nameRegex = /^[a-zA-Z\s'-]+$/;
+  if (!nameRegex.test(fullname)) {
+    alert("Please enter a valid name (letters and spaces only, no numbers).");
+    return false;
+  }
+ 
+  // Validate email format using regex pattern
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(email)) {
+    alert("Please enter a valid email address.");
+    return false;
+  }
+ 
+  // Validate expertise area selection - cannot be empty
+  if (expertise === "") {
+    alert("Please select your area of expertise.");
+    return false;
+  }
+ 
+  // Validate message - must not be empty and have minimum length
+  if (message === "") {
+    alert("Please tell us how you'd like to contribute.");
+    return false;
+  }
+ 
+  if (message.length < 20) {
+    alert("Please provide a more detailed message (at least 20 characters).");
+    return false;
+  }
+ 
+  // All validations passed
+  alert("Thank you for your interest in contributing! We will review your application and be in touch soon.");
   return true;
 }
 /*
