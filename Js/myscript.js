@@ -170,6 +170,46 @@ function validateEnquiryForm() {
   return true;
 } 
 /*
+ * Validates the login form on login.html
+ * Checks: email format, password not empty
+ * Returns: true if all fields valid, false otherwise
+ */
+function validateLoginForm() {
+  // Get form input elements
+  const email = document.getElementById("email").value.trim();
+  const password = document.getElementById("password").value;
+ 
+  // Validate email - must not be empty
+  if (email === "") {
+    alert("Please enter your email address.");
+    return false;
+  }
+ 
+  // Validate email format using regex pattern
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(email)) {
+    alert("Please enter a valid email address.");
+    return false;
+  }
+ 
+  // Validate password - must not be empty
+  if (password === "") {
+    alert("Please enter your password.");
+    return false;
+  }
+ 
+  // Validate password minimum length
+  if (password.length < 8) {
+    alert("Password must be at least 8 characters long.");
+    return false;
+  }
+}
+ 
+  // All validations passed
+  alert("Login successful! Welcome back to Her Haven Studio.");
+  return true;
+}
+/*
  * Initializes accordion functionality for FAQ section
  * Allows users to expand/collapse individual FAQ items
  * Automatically closes other open items when one is opened
