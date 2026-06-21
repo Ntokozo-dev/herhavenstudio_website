@@ -484,7 +484,14 @@ document.addEventListener("DOMContentLoaded", function () {
       validateRegisterForm();
     });
   }
- 
+  // Login page - validate login form on button click
+  const loginBtn = document.querySelector(".btn-login");
+  if (loginBtn) {
+    loginBtn.addEventListener("click", function (event) {
+      event.preventDefault(); // Prevent default link behavior
+      validateLoginForm();
+    });
+  }
   // Booking page - validate booking form on button click
   const bookingBtn = document.querySelector(".btn-confirm");
   if (bookingBtn) {
@@ -500,6 +507,14 @@ document.addEventListener("DOMContentLoaded", function () {
     enquiryBtn.addEventListener("click", function (event) {
       event.preventDefault(); // Prevent default link behavior
       validateEnquiryForm();
+    });
+  }
+ // Contributor page - validate contributor form on button click
+  const contributorBtn = document.querySelector(".btn-contributor");
+  if (contributorBtn) {
+    contributorBtn.addEventListener("click", function (event) {
+      event.preventDefault(); // Prevent default link behavior
+      validateContributorForm();
     });
   }
  
