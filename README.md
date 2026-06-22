@@ -375,7 +375,15 @@ Part 2 involved creating an external CSS stylesheet to style all 10 HTML pages w
 - **Entry 10**: Tested interactive features - Confirmed slideshow auto-advances every 5 seconds and manual buttons navigate correctly. Verified accordion expands/collapses smoothly. Tested Google Maps loads and displays location properly.
 
 ## HERO SECTION CHANGES
-- **Entry 12**: Added cloudy background to hero section - Integrated cloud background image as hero section background using CSS. Fixed relative path (../images/clouds-background.jpg) to correctly load from images folder. Applied background-size: cover, background-position: center, and background-attachment: fixed for responsive parallax effect. Added fallback background-color for page loading.
+- **Entry 11**: Added cloudy background to hero section - Integrated cloud background image as hero section background using CSS. Fixed relative path (../images/clouds-background.jpg) to correctly load from images folder. Applied background-size: cover, background-position: center, and background-attachment: fixed for responsive parallax effect. Added fallback background-color for page loading.
+
+### Search Engine Optimization (SEO)
+- **Entry 12**: Added meta descriptions to all 10 pages - Implemented descriptive meta descriptions for index.html, classes.html, community.html, wellness.html, research.html, about.html, register.html, login.html, booking.html, and contributor.html. Each description is optimized for search engines and accurately describes page content.
+
+- **Entry 13**: Implemented title tags across all pages - Added comprehensive, keyword-rich title tags to all 10 HTML pages. Each title includes the brand name "Her Haven Studio" plus relevant keywords (e.g., "Classes | Her Haven Studio - Yoga, Pilates, Strength Training" for classes.html).
+
+- **Entry 14**: Added meta keywords for search optimization - Implemented relevant keyword meta tags on all pages targeting women's fitness, wellness, classes, community, health education, and Johannesburg location. Keywords are specific to each page's content.
+
 ### Deployment Preparation
 - **Entry 11**: Ready for GitHub Pages deployment - All features tested and working. JavaScript properly linked across all pages. CSS styling applied consistently. Repository updated with all changes and descriptive commit messages.
 
@@ -387,3 +395,5 @@ Part 2 involved creating an external CSS stylesheet to style all 10 HTML pages w
 (e) Visual Studio Code (2025). Visual Studio Code — Code Editing. [online] Available at: https://code.visualstudio.com [Accessed 20 April 2026].
 (f)Whimsical (2025). Whimsical — The Visual Workspace. [online] Available at: https://whimsical.com [Accessed 20 April 2026].
 (g) W3Schools (2025). CSS Tutorial. [online] Available at: https://www.w3schools.com/CSS [Accessed 20 May 2026].
+OpenAI. (2026) AI-generated image of a diverse group of women after a fitness workout. Generated using ChatGPT image generation, 22 June.
+OpenAI. (2026) AI-generated image of a women's Zumba/cardio fitness class with purple lighting. Generated using ChatGPT image generation, 22 June.
